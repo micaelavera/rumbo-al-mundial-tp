@@ -14,19 +14,19 @@ public class Jugador {
 		this.incompatible=incompatible;
 	}
 
-	public String nombre() {
+	public String nombre(){
 		return nombre;
 	}
 
-	public String posicion() {
+	public String posicion(){
 		return posicion;
 	}
 
-	public int nivelJuego() {
+	public int nivelJuego(){
 		return nivelJuego;
 	}
 
-	public String incompatible() {
+	public String incompatible(){
 		return incompatible;
 	}
 	

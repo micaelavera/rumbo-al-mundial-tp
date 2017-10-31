@@ -14,11 +14,11 @@ public class Fondo extends javax.swing.JPanel {
 
 	@Override
 	public void paintComponent(Graphics g) {
-		Dimension tamaño = getSize();
+		Dimension tamano = getSize();
 		ImageIcon imagenFondo = new ImageIcon(getClass().getResource(
 				"/imagenes/cancha.jpg"));
-		g.drawImage(imagenFondo.getImage(), 0, 0, tamaño.width,
-				tamaño.height, null);
+		g.drawImage(imagenFondo.getImage(), 0, 0, tamano.width,
+				tamano.height, null);
 		setOpaque(false);
 		super.paintComponent(g);
 	}

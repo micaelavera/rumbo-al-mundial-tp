@@ -10,8 +10,8 @@ public class Instancia {
 		jugadores=new ArrayList<Jugador>();
 	}
 		
-	public void agregarJugador(String nombre,String posicion,int nivelJuego,String incompatible){
-		jugadores.add(new Jugador(nombre,posicion,nivelJuego,incompatible));
+	public void agregarJugador(Jugador jugador){
+		jugadores.add(jugador);
 	}
 	
 	public int cantidadDeJugadores(){

@@ -1,0 +1,22 @@
+{
+  "jugadores": [
+    {
+      "nombre": "Jugador 0",
+      "posicion": "delantero",
+      "nivelJuego": 4,
+      "incompatible": "Jugador 1"
+    },
+    {
+      "nombre": "Jugador 1",
+      "posicion": "delantero",
+      "nivelJuego": 4,
+      "incompatible": "Jugador 3"
+    },
+    {
+      "nombre": "Messi",
+      "posicion": "defensor",
+      "nivelJuego": 5,
+      "incompatible": "Liz"
+    }
+  ]
+}

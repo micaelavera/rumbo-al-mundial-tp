@@ -30,10 +30,4 @@ public class Jugador {
 		return incompatible;
 	}
 	
-	@Override
-	public String toString() {
-		return "Jugador [nombre=" + nombre + ", posicion=" + posicion
-				+ ", nivelJuego=" + nivelJuego + ", incompatible="
-				+ incompatible + "]";
-	}
 }

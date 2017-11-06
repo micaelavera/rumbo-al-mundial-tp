@@ -1,22 +1,154 @@
 {
   "jugadores": [
     {
-      "nombre": "Jugador 0",
-      "posicion": "delantero",
+      "nombre": "Romero",
+      "posicion": "Arquero",
       "nivelJuego": 4,
       "incompatible": "Jugador 1"
     },
     {
-      "nombre": "Jugador 1",
-      "posicion": "delantero",
-      "nivelJuego": 4,
+      "nombre": "Marchesin",
+      "posicion": "Arquero",
+      "nivelJuego": 5,
       "incompatible": "Jugador 3"
     },
     {
-      "nombre": "Messi",
-      "posicion": "defensor",
+      "nombre": "Guzman",
+      "posicion": "Arquero",
+      "nivelJuego": 7,
+      "incompatible": "Jugador2"
+    },
+    {
+      "nombre": "Mascherano",
+      "posicion": "Defensor",
+      "nivelJuego": 2,
+      "incompatible": "Jugador2"
+    },
+    {
+      "nombre": "Fazio",
+      "posicion": "Defensor",
+      "nivelJuego": 2,
+      "incompatible": "Jugador2"
+    },
+    {
+      "nombre": "Mercado",
+      "posicion": "Defensor",
+      "nivelJuego": 7,
+      "incompatible": "Jugador2"
+    },
+    {
+      "nombre": "Otamendi",
+      "posicion": "Defensor",
+      "nivelJuego": 6,
+      "incompatible": "Jugador2"
+    },
+    {
+      "nombre": "Pezzela",
+      "posicion": "Defensor",
       "nivelJuego": 5,
-      "incompatible": "Liz"
+      "incompatible": "Jugador2"
+    },
+    {
+      "nombre": "Insua",
+      "posicion": "Defensor",
+      "nivelJuego": 3,
+      "incompatible": "Jugador2"
+    },
+    {
+      "nombre": "Salvio",
+      "posicion": "Mediocampista",
+      "nivelJuego": 2,
+      "incompatible": "Jugador2"
+    },
+    {
+      "nombre": "Banega",
+      "posicion": "Mediocampista",
+      "nivelJuego": 2,
+      "incompatible": "Jugador2"
+    },
+    {
+      "nombre": "Acuña",
+      "posicion": "Mediocampista",
+      "nivelJuego": 2,
+      "incompatible": "Jugador2"
+    },
+    {
+      "nombre": "Paredes",
+      "posicion": "Mediocampista",
+      "nivelJuego": 2,
+      "incompatible": "Jugador2"
+    },
+    {
+      "nombre": "Rigoni",
+      "posicion": "Mediocampista",
+      "nivelJuego": 2,
+      "incompatible": "Jugador2"
+    },
+    {
+      "nombre": "Kranevitter",
+      "posicion": "Mediocampista",
+      "nivelJuego": 2,
+      "incompatible": "Jugador2"
+    },
+    {
+      "nombre": "Perotti",
+      "posicion": "Mediocampista",
+      "nivelJuego": 2,
+      "incompatible": "Jugador2"
+    },
+    {
+      "nombre": "Belluschi",
+      "posicion": "Mediocampista",
+      "nivelJuego": 2,
+      "incompatible": "Jugador2"
+    },
+    {
+      "nombre": "Perez",
+      "posicion": "Mediocampista",
+      "nivelJuego": 2,
+      "incompatible": "Jugador2"
+    },
+    {
+      "nombre": "Messi",
+      "posicion": "Delantero",
+      "nivelJuego": 5,
+      "incompatible": "Jugador2"
+    },
+    {
+      "nombre": "Icardi",
+      "posicion": "Delantero",
+      "nivelJuego": 6,
+      "incompatible": "Jugador2"
+    },
+    {
+      "nombre": "Di Maria",
+      "posicion": "Delantero",
+      "nivelJuego": 2,
+      "incompatible": "Jugador2"
+    },
+    {
+      "nombre": "Dybala",
+      "posicion": "Delantero",
+      "nivelJuego": 2,
+      "incompatible": "Jugador2"
+    },
+    {
+      "nombre": "Benedetto",
+      "posicion": "Delantero",
+      "nivelJuego": 2,
+      "incompatible": "Jugador2"
+    },
+    {
+      "nombre": "Pavon",
+      "posicion": "Delantero",
+      "nivelJuego": 2,
+      "incompatible": "Jugador2"
+    },
+    {
+      "nombre": "Aguero",
+      "posicion": "Delantero",
+      "nivelJuego": 2,
+      "incompatible": "Jugador2"
     }
   ]
 }

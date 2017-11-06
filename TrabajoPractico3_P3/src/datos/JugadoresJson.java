@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
 
 public class JugadoresJson {
 	
@@ -58,6 +59,9 @@ public class JugadoresJson {
 		}
 		catch(IOException e){
 			throw new IllegalArgumentException("El sistema no puede encontrar el archivo especificado");
+		}
+		catch(JsonSyntaxException e){
+			throw new IllegalArgumentException("El tipo de archivo no corresponde al formato JSON");
 		}
 		return ret;
 	}

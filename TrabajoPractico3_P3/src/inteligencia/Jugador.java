@@ -34,7 +34,6 @@ public class Jugador implements Serializable{
 		return false;
 	}
 	
-	
 	public String nombre(){
 		return nombre;
 	}

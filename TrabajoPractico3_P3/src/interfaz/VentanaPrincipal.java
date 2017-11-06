@@ -99,11 +99,7 @@ public class VentanaPrincipal {
 		lblCargueElArchivo.setForeground(Color.WHITE);
 		lblCargueElArchivo.setBounds(237, 244, 308, 14);
 		fondo.add(lblCargueElArchivo);
-		
-		
-		
-		
-//		mostrarJugadores(); 
+			 
 	
 	}
 }

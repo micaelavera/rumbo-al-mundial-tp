@@ -6,9 +6,22 @@ import inteligencia.PosicionJuego.Posicion;
 public class Formacion {
 	
 	
-	public static void equipoIdeal(){
-		
-	}
+	
+	
+	
+	
+//	public boolean verificar(Jugadores jugadores){
+//		boolean ret=false;
+//		if(!verificarFormacionPedida(jugadores)){
+//			ret=true;
+//		}
+//		return ret;
+//	}
+//	
+	
+	
+	
+	
 	
 
 	private static boolean verificarFormacionPedida(Jugadores jugadores){

@@ -53,17 +53,17 @@ public class Equipo1 extends JDialog {
 		JPanel panel1=new JPanel();
 		pestaña.addTab("Jugadores", panel1);
 		
-		Solver jugadores=new Solver();
-		jugadores.cargarJugadores("jugadores.JSON");
-		panel1.setLayout(null);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 0, 517, 427);
-		panel1.add(scrollPane);
-		
-		JTable tabla=new JTable();
-		scrollPane.setViewportView(tabla);
-		tabla.setModel(new Tabla(jugadores.get_jugadores()));
+////		Solver jugadores=new Solver();
+////		jugadores.cargarJugadores("jugadores.JSON");
+////		panel1.setLayout(null);
+//		
+//		JScrollPane scrollPane = new JScrollPane();
+//		scrollPane.setBounds(10, 0, 517, 427);
+//		panel1.add(scrollPane);
+//		
+//		JTable tabla=new JTable();
+//		scrollPane.setViewportView(tabla);
+//		tabla.setModel(new Tabla(jugadores.get_jugadores()));
 		
 //		JScrollPane scrollPane = new JScrollPane();
 //		scrollPane.setBounds(239, 56, 680, 263);

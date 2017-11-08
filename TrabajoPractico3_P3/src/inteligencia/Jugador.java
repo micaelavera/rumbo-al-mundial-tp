@@ -1,8 +1,6 @@
 package inteligencia;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-
 import inteligencia.PosicionJuego.Posicion;
 
 public class Jugador implements Serializable{
@@ -49,5 +47,4 @@ public class Jugador implements Serializable{
 	public String incompatible(){
 		return incompatible;
 	}
-	
 }

@@ -1,61 +1,53 @@
 package inteligencia;
 
-import java.text.DecimalFormat;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Solucion
-{
-	private Set<Jugador> _objetos;
+public class Solucion{
 	
-	public Solucion()
-	{
-		_objetos = new HashSet<Jugador>();
+	private Set<Jugador> jugadores;
+	
+	public Solucion(){
+		jugadores = new HashSet<Jugador>();
 	}
 
-	public void agregar(Jugador objeto)
-	{
-		_objetos.add(objeto);
+	public void agregar(Jugador jugador){
+		jugadores.add(jugador);
 	}
 
-	public void eliminar(Jugador objeto)
-	{
-		_objetos.remove(objeto);
+	public void eliminar(Jugador jugador){
+		jugadores.remove(jugador);
 	}
 
-	public int nivelJuego()
-	{
+	public int nivelJuego(){
 		int ret = 0;
-		for(Jugador obj: _objetos)
-			ret += obj.nivelJuego();
+		for(Jugador jugador: jugadores)
+			ret += jugador.nivelJuego();
 		
 		return ret;
 	}
 
-	public Set<Jugador> getObjetos()
-	{
-		return _objetos;
+	public Set<Jugador> getObjetos(){
+		return jugadores;
 	}
 	
 	public int cantidadDeJugadores(){
-		return _objetos.size();
+		return jugadores.size();
 	}
 	
 	@Override
-	public String toString()
-	{
+	public String toString(){
 		String ret = "";
-		for(Jugador obj: _objetos)
-			ret += (ret.length() > 0 ? "\n " : "") + obj.nombre()+ " " +obj.posicion()+ " "+ obj.nivelJuego()+ " "+obj.incompatible();
+		for(Jugador jugador: jugadores)
+			ret += (ret.length() > 0 ? "\n " : "") + jugador.nombre()+ " " +jugador.posicion()+ " "+ jugador.nivelJuego()+ " "+jugador.incompatible();
 		return ret;
 	}
 
-	public Solucion clonar()
-	{
+	public Solucion clonar(){
 		// Deep copy
 		Solucion ret = new Solucion();
-		for(Jugador obj: _objetos)
-			ret.agregar(obj);
+		for(Jugador solucion: jugadores)
+			ret.agregar(solucion);
 		
 		return ret;
 	}

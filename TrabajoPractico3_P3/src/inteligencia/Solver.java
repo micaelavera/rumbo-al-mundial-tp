@@ -18,33 +18,18 @@ public class Solver{
 	
 	public Solver(Jugadores instancia,Algoritmo algoritmo){
 		_instancia=instancia;
-//	_jugadores=new ArrayList<Jugador>();
 		_algoritmo=algoritmo;
 		_jugadores=instancia.getJugadores();
-}
-//	
-//	public void cargarJugadores(String archivo){
-//		try{
-//			JugadoresJson jugadoresJson= JugadoresJson.leerGSON(archivo);
-//			_jugadores=jugadoresJson.getJugadores();
-//			
-//		}catch(IllegalArgumentException e){
-//			throw new IllegalArgumentException("No se encuentra el listado de materias con nombre: "+ archivo);
-//		}
-//	}
+	}
 
 	public void ordenarJugadores(){
 		Collections.sort(_jugadores, Comparador.porNivelDeJuego());
 		Collections.reverse(_jugadores);
 	}
 	
-	
 	public ArrayList<Jugador> get_jugadores() {
 		return _jugadores;
 	}
-
-
-
 
 	public Solucion resolver(){
 		if( _algoritmo == Algoritmo.BacktrackingOrdenado )
@@ -58,12 +43,11 @@ public class Solver{
 		return _incumbente;
 	}
 	
-	public void generarDesde(int i)
-	{
+	public void generarDesde(int i){
 		if( i == _instancia.cantidadDeJugadores() )
 		{
 			// Caso base de la recursión
-			if( esFactible(_solucion) && esMejor(_solucion, _incumbente))
+			if( esFactible(_solucion) && esMejor(_solucion, _incumbente) && verificarFormacionPedida(_solucion))
 				_incumbente = _solucion.clonar();
 		}
 		else if( _algoritmo == Algoritmo.FuerzaBruta || esFactible(_solucion))
@@ -75,21 +59,23 @@ public class Solver{
 			_solucion.eliminar(_jugadores.get(i));
 			generarDesde(i+1);
 		}
-//		else
-//		{
-//			_podas++;
-//		}
-//		
-//		_nodos++;
+	}
+	
+	public int nivelDeJuegoTotal(Solucion jugadores){
+		int puntaje=0;
+		for(Jugador jugador: jugadores.getObjetos()){
+			puntaje+=jugador.nivelJuego();
+		}
+		return puntaje;
 	}
 	
 	
-	private static boolean verificarFormacionPedida(Jugadores jugadores){
+	private static boolean verificarFormacionPedida(Solucion jugadores){
 		int arquero=0;
 		int defensores=0;
 		int delanteros=0;
 		int mediocampistas=0;
-		for (Jugador jugador : jugadores.getJugadores()) {
+		for (Jugador jugador : jugadores.getObjetos()) {
 			if(jugador.mismaPosicion(Posicion.Arquero))
 				arquero++;
 			if(jugador.mismaPosicion(Posicion.Defensor))
@@ -105,7 +91,7 @@ public class Solver{
 	
 	private boolean esFactible(Solucion solucion)
 	{
-		return solucion.cantidadDeJugadores() <= _instancia.getCantidadDeJugadores(); 
+		return solucion.cantidadDeJugadores()<= _instancia.getCantidadDeJugadores(); 
 	}
 	
 	
@@ -114,4 +100,7 @@ public class Solver{
 		return solucion.nivelJuego() > otra.nivelJuego();
 	}
 
+//	private boolean esIncompatible(Jugador solucion,Jugador otra){
+//		return 
+//	}
 }

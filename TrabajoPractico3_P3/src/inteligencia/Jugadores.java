@@ -1,16 +1,16 @@
 package inteligencia;
 
 import java.util.ArrayList;
-import java.util.Collections;
+
 import datos.JugadoresJson;
 import inteligencia.Jugador;
 
 public class Jugadores {
 
-	private int nivelJuegoTotal;
 	private ArrayList<Jugador> jugadores;
 	private int cantJugadores;
-	
+	private int nivelJuegoTotal;
+
 	public Jugadores(){
 		jugadores=new ArrayList<Jugador>();
 		nivelJuegoTotal=0;
@@ -26,6 +26,7 @@ public class Jugadores {
 		jugadores.remove(jugador);
 		nivelJuegoTotal-=jugador.nivelJuego();
 	}
+
 	
 	public int cantidadDeJugadores(){
 		return jugadores.size();
@@ -42,11 +43,20 @@ public class Jugadores {
 	public int getNivelJuegoTotal() {
 		return nivelJuegoTotal;
 	}
-	
 
 	@SuppressWarnings("unchecked")
 	public ArrayList<Jugador> getJugadores() {
 		return (ArrayList<Jugador>) jugadores.clone();
+	}
+	
+	public void cargarJugadores(String archivo){
+		try{
+			JugadoresJson jugadoresJson= JugadoresJson.leerGSON(archivo);
+			jugadores=jugadoresJson.getJugadores();
+			
+		}catch(IllegalArgumentException e){
+			throw new IllegalArgumentException("No se encuentra el listado de materias con nombre: "+ archivo);
+		}
 	}
 	
 	@Override

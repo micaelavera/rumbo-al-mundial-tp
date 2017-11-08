@@ -2,18 +2,20 @@ package imagenes;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
-import javax.swing.ImageIcon;
 
-public class Fondo extends javax.swing.JPanel {
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+
+public class Fondo extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	public Fondo() {
+	public Fondo(){
 		this.setSize(800, 550);
 	}
-
+	
 	@Override
-	public void paintComponent(Graphics g) {
+	public void paintComponent(Graphics g){
 		Dimension tamano = getSize();
 		ImageIcon imagenFondo = new ImageIcon(getClass().getResource(
 				"/imagenes/cancha.jpg"));

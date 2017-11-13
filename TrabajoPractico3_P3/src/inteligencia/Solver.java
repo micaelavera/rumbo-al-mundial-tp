@@ -1,11 +1,12 @@
 package inteligencia;
-//
+
 import inteligencia.PosicionJuego.Posicion;
 
 import java.util.ArrayList;
 import java.util.Collections;
-
-import datos.JugadoresJson;
+//import java.util.Comparator;
+//
+//import datos.JugadoresJson;
 
 public class Solver{
 
@@ -16,10 +17,15 @@ public class Solver{
 	public enum Algoritmo{BacktrackingOrdenado,FuerzaBruta};
 	private Algoritmo _algoritmo;
 	
+	ArrayList<TuplaIncompatibles<Jugador, Jugador>> ParesIncompatibles;
+	
 	public Solver(Jugadores instancia,Algoritmo algoritmo){
 		_instancia=instancia;
 		_algoritmo=algoritmo;
 		_jugadores=instancia.getJugadores();
+		
+		ParesIncompatibles= new ArrayList<TuplaIncompatibles<Jugador,Jugador>>();
+		
 	}
 
 	public void ordenarJugadores(){
@@ -46,7 +52,7 @@ public class Solver{
 	public void generarDesde(int i){
 		if( i == _instancia.cantidadDeJugadores() )
 		{
-			// Caso base de la recursión
+			// Caso base de la recursiï¿½n
 			if( esFactible(_solucion) && esMejor(_solucion, _incumbente) && verificarFormacionPedida(_solucion))
 				_incumbente = _solucion.clonar();
 		}
@@ -99,8 +105,73 @@ public class Solver{
 	{
 		return solucion.nivelJuego() > otra.nivelJuego();
 	}
+	//Lizz estuvo aqui
+	// Prestar atencion. aca serviria preguntatar en ParesIncompatibles o directamente ej jugadores?
+	
+	public boolean pertenece(Jugador j1) 
+	{
+		return _jugadores.contains(j1);
+	}
+	//Lizz estuvo aqui
+	//Me sirve para utilizar si pertenece el par de incompatibles de forma simetrica
+	
+	private boolean pertenecePar(Jugador j1, Jugador j2)
+	{
+				//Ver si se hace un pertenece para que la guarda no sea larga
+				if(ParesIncompatibles.contains(new TuplaIncompatibles<Jugador, Jugador>(j1, null) ) )
+				{
+					for(TuplaIncompatibles<Jugador, Jugador> TI: ParesIncompatibles)
+						if(TI.e2.equals(j2) )
+							return true;
+				}else{
+						if(ParesIncompatibles.contains(new TuplaIncompatibles<Jugador, Jugador>(j1, null) ) )
+						{
+						for(TuplaIncompatibles<Jugador, Jugador> TI: ParesIncompatibles)
+							if(TI.e1.equals(j1) )
+								return true;
+						}
+					}
+				return false;
+			
+	}
+	//Lizz estuvo aqui
+	public void agregarPar(Jugador j1, Jugador j2)
+	{
+		if(!pertenecePar(j1, j2))
+			ParesIncompatibles.add(new TuplaIncompatibles<Jugador, Jugador>(j1, j2) );
+	}
+	
+	//Lizz estuvo aqui revisar si esto sirve porque quizas no serviria la condicion de preguntar el incompatible de j1  es j2
+	private boolean esIncompatible(Jugador j1,Jugador j2)
+	{
+		if (pertenecePar(j1, j2) )
+		{	if(j1.incompatible.equals(j2))
+				return true;
+		}else{ 
+				if (pertenecePar(j1, j2) ) //Realmente es necesario el 2do if? ya que en pertenece par se fija en los dos j1, j2 
+				{	if(j2.incompatible.equals(j1))// yo creo que si: Liz.
+						return true;
+				}
+			
+			}
+		return false;
+	}
+	//Liz 
+	private void  entraUnodelPar()
+	{
+		for(TuplaIncompatibles<Jugador, Jugador> TI: ParesIncompatibles)
+			if (pertenece(TI.e1) &&  TI.e1.nivelJuego()>= TI.e2.nivelJuego() ) 
+			{
+				_jugadores.add(TI.e1);
+			
+				_jugadores.remove(TI.e2);
+			}else
+			{
+					_jugadores.add(TI.e2);
+				
+					_jugadores.remove(TI.e1);
+				}
+			}
+}
 
-//	private boolean esIncompatible(Jugador solucion,Jugador otra){
-//		return 
-//	}
 }

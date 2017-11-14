@@ -1,0 +1,28 @@
+{
+  "ParesIncompatibles": [
+    {
+      "jugador1": {
+        "nombre": "Romero",
+        "posicion": "Arquero",
+        "nivelJuego": 10
+      },
+      "jugador2": {
+        "nombre": "Guzman",
+        "posicion": "Arquero",
+        "nivelJuego": 7
+      }
+    },
+    {
+      "jugador1": {
+        "nombre": "Romero",
+        "posicion": "Arquero",
+        "nivelJuego": 10
+      },
+      "jugador2": {
+        "nombre": "Mascherano",
+        "posicion": "Defensor",
+        "nivelJuego": 5
+      }
+    }
+  ]
+}

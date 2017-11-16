@@ -29,6 +29,7 @@ public class EquipoIdeal extends JDialog {
 	
 	private Fondo fondo_2;
 	private Solver solver;
+	private Solver jugadoresSolver;
 	private Jugadores jugadores;
 	Jugadores inst;
 	Solucion solucion;
@@ -63,15 +64,14 @@ public class EquipoIdeal extends JDialog {
 
 		jugadores=new Jugadores();
 		jugadores.cargarJugadores("jugadores.JSON");
-//		resolver(jugadores,Algoritmo.BacktrackingOrdenado);
+
 		
-		Solver solver = new Solver(jugadores, Algoritmo.BacktrackingOrdenado);
+		 solver = new Solver(jugadores, Algoritmo.BacktrackingOrdenado);
 		Solucion optima = solver.resolver();
 //		System.out.println(optima);
-				
 
-		solucion=new Solucion();
-		solucion.ListasDePosiciones(optima);
+		ArrayList<Jugador> jugadores= new ArrayList<Jugador>();
+		jugadores=solver.ListasDePosiciones(optima);
 		
 		fondo_2 = new Fondo();
 		fondo_2.setBackground(Color.BLACK);
@@ -79,101 +79,86 @@ public class EquipoIdeal extends JDialog {
 		setContentPane(fondo_2);
 		fondo_2.setLayout(null);
 		
-		arquero = new JTextField(solucion.ListasDePosiciones(optima).get(0).nombre());
+		arquero = new JTextField(jugadores.get(0).nombre());
 		arquero.setBackground(new Color(0, 100, 0));
 		arquero.setForeground(new Color(255, 255, 255));
 		arquero.setBounds(41, 232, 86, 20);
 		fondo_2.add(arquero);
 		arquero.setColumns(10);
 		
-		defensor1 = new JTextField(solucion.ListasDePosiciones(optima).get(1).nombre());
+		defensor1 = new JTextField(jugadores.get(1).nombre());
 		defensor1.setForeground(Color.WHITE);
 		defensor1.setColumns(10);
 		defensor1.setBackground(new Color(0, 100, 0));
 		defensor1.setBounds(209, 52, 86, 20);
 		fondo_2.add(defensor1);
 		
-		defensor2 = new JTextField(solucion.ListasDePosiciones(optima).get(2).nombre());
+		defensor2 = new JTextField(jugadores.get(2).nombre());
 		defensor2.setForeground(Color.WHITE);
 		defensor2.setColumns(10);
 		defensor2.setBackground(new Color(0, 100, 0));
 		defensor2.setBounds(209, 159, 86, 20);
 		fondo_2.add(defensor2);
 		
-		defensor3 = new JTextField(solucion.ListasDePosiciones(optima).get(3).nombre());
+		defensor3 = new JTextField(jugadores.get(3).nombre());
 		defensor3.setForeground(Color.WHITE);
 		defensor3.setColumns(10);
 		defensor3.setBackground(new Color(0, 100, 0));
 		defensor3.setBounds(209, 280, 86, 20);
 		fondo_2.add(defensor3);
 		
-		defensor4 = new JTextField(solucion.ListasDePosiciones(optima).get(4).nombre());
+		defensor4 = new JTextField(jugadores.get(4).nombre());
 		defensor4.setForeground(Color.WHITE);
 		defensor4.setColumns(10);
 		defensor4.setBackground(new Color(0, 100, 0));
 		defensor4.setBounds(209, 385, 86, 20);
 		fondo_2.add(defensor4);
 		
-		mediocampista1 = new JTextField(solucion.ListasDePosiciones(optima).get(5).nombre());
+		mediocampista1 = new JTextField(jugadores.get(5).nombre());
 		mediocampista1.setForeground(Color.WHITE);
 		mediocampista1.setColumns(10);
 		mediocampista1.setBackground(new Color(0, 100, 0));
 		mediocampista1.setBounds(376, 99, 86, 20);
 		fondo_2.add(mediocampista1);
 		
-		mediocampista2 = new JTextField(solucion.ListasDePosiciones(optima).get(6).nombre());
+		mediocampista2 = new JTextField(jugadores.get(6).nombre());
 		mediocampista2.setForeground(Color.WHITE);
 		mediocampista2.setColumns(10);
 		mediocampista2.setBackground(new Color(0, 100, 0));
 		mediocampista2.setBounds(376, 232, 86, 20);
 		fondo_2.add(mediocampista2);
 		
-		mediocampista3 = new JTextField(solucion.ListasDePosiciones(optima).get(7).nombre());
+		mediocampista3 = new JTextField(jugadores.get(7).nombre());
 		mediocampista3.setForeground(Color.WHITE);
 		mediocampista3.setColumns(10);
 		mediocampista3.setBackground(new Color(0, 100, 0));
 		mediocampista3.setBounds(376, 348, 86, 20);
 		fondo_2.add(mediocampista3);
 		
-		delantero1 = new JTextField(solucion.ListasDePosiciones(optima).get(8).nombre());
+		delantero1 = new JTextField(jugadores.get(8).nombre());
 		delantero1.setForeground(Color.WHITE);
 		delantero1.setColumns(10);
 		delantero1.setBackground(new Color(0, 100, 0));
 		delantero1.setBounds(527, 52, 86, 20);
 		fondo_2.add(delantero1);
 		
-		delantero2 = new JTextField(solucion.ListasDePosiciones(optima).get(9).nombre());
+		delantero2 = new JTextField(jugadores.get(9).nombre());
 		delantero2.setForeground(Color.WHITE);
 		delantero2.setColumns(10);
 		delantero2.setBackground(new Color(0, 100, 0));
 		delantero2.setBounds(527, 183, 86, 20);
 		fondo_2.add(delantero2);
 		
-		delantero3 = new JTextField(solucion.ListasDePosiciones(optima).get(10).nombre());
+		delantero3 = new JTextField(jugadores.get(10).nombre());
 		delantero3.setForeground(Color.WHITE);
 		delantero3.setColumns(10);
 		delantero3.setBackground(new Color(0, 100, 0));
 		delantero3.setBounds(527, 324, 86, 20);
 		fondo_2.add(delantero3);
 		
-//		JLabel arquero = new JLabel(optima.getJugadores());
-//		arquero.setFont(new Font("Tahoma", Font.PLAIN, 17));
-//		arquero.setForeground(Color.YELLOW);
-//		arquero.setBounds(46, 225, 109, 14);
-//		fondo.add(arquero);
-//	
+
 
 		
 	}
-	
-	private static void resolver(Jugadores instancia, Solver.Algoritmo algoritmo){
-		Solver solver = new Solver(instancia, algoritmo);
-		Solucion optima = solver.resolver();
-		
-		
-//		System.out.print("\n"+algoritmo+"\n"+"\n");
-		System.out.println(optima);
-//		System.out.println();
-	
-	}
+
 }

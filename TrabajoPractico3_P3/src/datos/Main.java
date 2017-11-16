@@ -1,16 +1,12 @@
 package datos;
 
-import inteligencia.Incompatibles;
 import inteligencia.Jugador;
-import inteligencia.Jugadores;
 import inteligencia.PosicionJuego.Posicion;
-import inteligencia.Solucion;
-import inteligencia.Solver;
 
 public class Main {
 
 	public static void main(String[] args) {
-		Jugadores jugadores= new Jugadores();
+		JugadoresJson jugadores= new JugadoresJson();
 		jugadores.agregarJugador(new Jugador("Romero",Posicion.Arquero,10)); //posicion 0
 		jugadores.agregarJugador(new Jugador("Marchesin",Posicion.Arquero,5)); //posicion 1
 		jugadores.agregarJugador(new Jugador("Guzman",Posicion.Arquero,7)); //posicion 2
@@ -40,49 +36,47 @@ public class Main {
 		jugadores.agregarJugador(new Jugador("Pavon",Posicion.Delantero,7)); //posicion 23
 		jugadores.agregarJugador(new Jugador("Aguero",Posicion.Delantero,5)); //posicion 24
 		
-		System.out.println(jugadores.toString());
+		jugadores.generarGSON("jugadores.JSON");
 		
-		Incompatibles i=new Incompatibles();
-		//Arqueros y sus incompatibles
-		i.agregarPar(jugadores.getJugador(0), jugadores.getJugador(3)); // Romero incompatible a Mascherano
-		i.agregarPar(jugadores.getJugador(1), jugadores.getJugador(2)); //  Marchesin incompatible a  Otamendi
-		i.agregarPar(jugadores.getJugador(2), jugadores.getJugador(17)); // Guzman incompatible a Perez
+		IncompatiblesJSON incompatibles=new IncompatiblesJSON();
+//		//Arqueros y sus incompatibles
+		incompatibles.agregarPar(jugadores.getJugador(0), jugadores.getJugador(3)); // Romero incompatible a Mascherano
+		incompatibles.agregarPar(jugadores.getJugador(1), jugadores.getJugador(2)); //  Marchesin incompatible a  Otamendi
+		incompatibles.agregarPar(jugadores.getJugador(2), jugadores.getJugador(17)); // Guzman incompatible a Perez
 		
-		//Defensores y sus incompatibles
-		i.agregarPar(jugadores.getJugador(3), jugadores.getJugador(9)); // Mascherano incompatible a Silvio
-		i.agregarPar(jugadores.getJugador(4), jugadores.getJugador(13)); //  Fazio incompatible a Rigoni
-//		i.agregarPar(jugadores.getJugador(6), jugadores.getJugador(2)); // Otamendi incompatible a Guzman
-		
-		//Mediocampistas y sus incompatibles
-		i.agregarPar(jugadores.getJugador(9), jugadores.getJugador(19)); // Salvio incompatible a Icardi
+//		//Defensores y sus incompatibles
+		incompatibles.agregarPar(jugadores.getJugador(3), jugadores.getJugador(9)); // Mascherano incompatible a Silvio
+		incompatibles.agregarPar(jugadores.getJugador(4), jugadores.getJugador(13)); //  Fazio incompatible a Rigoni
+		incompatibles.agregarPar(jugadores.getJugador(6), jugadores.getJugador(2)); // Otamendi incompatible a Guzman
+//		
+//		//Mediocampistas y sus incompatibles
+		incompatibles.agregarPar(jugadores.getJugador(9), jugadores.getJugador(19)); // Salvio incompatible a Icardi
 //		i.agregarPar(jugadores.getJugador(10), jugadores.getJugador(18)); // Banega incompatible a  Messi
-		i.agregarPar(jugadores.getJugador(2), jugadores.getJugador(17)); // Guzman incompatible a Perez
+		incompatibles.agregarPar(jugadores.getJugador(2), jugadores.getJugador(17)); // Guzman incompatible a Perez
 		
-		//Delanteros y sus incompatibles
-		i.agregarPar(jugadores.getJugador(18), jugadores.getJugador(19)); // Messi incompatible a Icardi
-		i.agregarPar(jugadores.getJugador(21), jugadores.getJugador(17)); // Dybala incompatible a Perez
-		i.agregarPar(jugadores.getJugador(22), jugadores.getJugador(23)); // Benedetto incompatible a Pavon
-//		i.agregarPar(jugadores.getJugador(23), jugadores.getJugador(24)); // Pavon incompatible a Aguero
-//		i.agregarPar(jugadores.getJugador(24), jugadores.getJugador(22)); // Aguero incompatible a Di Maria
-		
-		System.out.println(i.toString());
-		i.entraUnodelPar(jugadores);
-		
-		System.out.println();
-		System.out.println(jugadores.toString());
-		
-//		Solver solver= new Solver (jugadores,algoritmo);
-//		Solucion optima=solver.resolver();
-		resolver(jugadores,Solver.Algoritmo.BacktrackingOrdenado);
+//		//Delanteros y sus incompatibles
+//		i.agregarPar(jugadores.getJugador(18), jugadores.getJugador(19)); // Messi incompatible a Icardi
+//		i.agregarPar(jugadores.getJugador(21), jugadores.getJugador(17)); // Dybala incompatible a Perez
+//		i.agregarPar(jugadores.getJugador(22), jugadores.getJugador(23)); // Benedetto incompatible a Pavon
+////		i.agregarPar(jugadores.getJugador(23), jugadores.getJugador(24)); // Pavon incompatible a Aguero
+////		i.agregarPar(jugadores.getJugador(24), jugadores.getJugador(22)); // Aguero incompatible a Di Maria
+//		
 
-	}
-	private static void resolver(Jugadores instancia, Solver.Algoritmo algoritmo){
-		Solver solver = new Solver(instancia, algoritmo);
-		Solucion optima = solver.resolver();
+		incompatibles.generarIncompatiblesGSON("incompatibles.JSON");
 		
-		System.out.print("\n"+algoritmo+"\n"+"\n");
-		System.out.println(optima);
-		System.out.println();
+////		Solver solver= new Solver (jugadores,algoritmo);
+////		Solucion optima=solver.resolver();
+//		resolver(jugadores,Solver.Algoritmo.BacktrackingOrdenado);
+//
+//	}
+//	private static void resolver(Jugadores instancia, Solver.Algoritmo algoritmo){
+//		Solver solver = new Solver(instancia, algoritmo);
+//		Solucion optima = solver.resolver();
+//		
+//		
+//		System.out.print("\n"+algoritmo+"\n"+"\n");
+//		System.out.println(optima);
+//		System.out.println();
 	}
 }
 

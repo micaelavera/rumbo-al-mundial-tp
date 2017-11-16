@@ -1,7 +1,7 @@
 package inteligencia;
 
 
-public class TuplaIncompatibles<T1, T2>  //Lizz estuvo aqui
+public class TuplaIncompatibles<T1, T2>
 {
 
 	T1 jugador1;
@@ -19,6 +19,16 @@ public class TuplaIncompatibles<T1, T2>  //Lizz estuvo aqui
 	{
 		String ret = jugador1.toString() + "," + jugador2.toString() + ";";
 		return ret;
+	}
+
+
+	public T1 getJugador1() {
+		return jugador1;
+	}
+
+
+	public T2 getJugador2() {
+		return jugador2;
 	}
 
 }

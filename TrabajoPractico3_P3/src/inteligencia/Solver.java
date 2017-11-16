@@ -24,7 +24,7 @@ public class Solver{
 	public Solver(Jugadores instancia,Algoritmo algoritmo){
 		_instancia=instancia;
 		_algoritmo=algoritmo;
-		_jugadores=instancia.getJugadores();
+		_jugadores=_instancia.getJugadores();
 		
 //		ParesIncompatibles= new ArrayList<TuplaIncompatibles<Jugador,Jugador>>();
 		
@@ -71,7 +71,7 @@ public class Solver{
 	
 	public int nivelDeJuegoTotal(Solucion jugadores){
 		int puntaje=0;
-		for(Jugador jugador: jugadores.getObjetos()){
+		for(Jugador jugador: jugadores.getJugadores()){
 			puntaje+=jugador.nivelJuego();
 		}
 		return puntaje;
@@ -83,7 +83,7 @@ public class Solver{
 		int defensores=0;
 		int delanteros=0;
 		int mediocampistas=0;
-		for (Jugador jugador : jugadores.getObjetos()) {
+		for (Jugador jugador : jugadores.getJugadores()) {
 			if(jugador.mismaPosicion(Posicion.Arquero))
 				arquero++;
 			if(jugador.mismaPosicion(Posicion.Defensor))

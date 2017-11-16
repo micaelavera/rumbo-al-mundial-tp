@@ -27,7 +27,7 @@ public class Solucion{
 		return ret;
 	}
 
-	public Set<Jugador> getObjetos(){
+	public Set<Jugador> getJugadores(){
 		return jugadores;
 	}
 	

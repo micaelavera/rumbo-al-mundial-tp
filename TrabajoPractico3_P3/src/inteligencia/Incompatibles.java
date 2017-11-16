@@ -1,9 +1,6 @@
 package inteligencia;
 
-import inteligencia.PosicionJuego.Posicion;
-
 import java.util.ArrayList;
-
 import datos.IncompatiblesJSON;
 
 public class Incompatibles {
@@ -28,7 +25,6 @@ public class Incompatibles {
 		}
 	}
 	
-	
 	public void entraUnodelPar(Jugadores jugadores){
 		for(TuplaIncompatibles<Jugador, Jugador> TI: ParesIncompatibles)
 			if ( TI.jugador1.nivelJuego()> TI.jugador2.nivelJuego() ) 
@@ -52,36 +48,6 @@ public class Incompatibles {
 		}
 		return ret;
 	}
-	
-	public static void main(String[]args){	
-		Jugadores j=new Jugadores();
-		j.agregarJugador(new Jugador("Romero",Posicion.Arquero,10));
-		j.agregarJugador(new Jugador("Marchesin",Posicion.Arquero,5));
-		j.agregarJugador(new Jugador("Otamendi",Posicion.Defensor,6));
-		
-		j.agregarJugador(new Jugador("Mascherano",Posicion.Defensor,5));
-		j.agregarJugador(new Jugador("Fazio",Posicion.Defensor,2));
-		j.agregarJugador(new Jugador("Mercado",Posicion.Defensor,7));
-	
-		System.out.println(j.toString());
-		
-		Incompatibles i=new Incompatibles();
-		i.agregarPar(j.getJugador(1), j.getJugador(2));
-		i.agregarPar(j.getJugador(0), j.getJugador(3));
-	
-		System.out.println(i.toString());
-		i.entraUnodelPar(j);
-		System.out.println();
-		
-		System.out.println(j.toString());
-	}
-
-//	public ArrayList<Jugador> get_jugadores() {
-//		return _jugadores;
-//	}
-	
-	
-
 	
 	
 }

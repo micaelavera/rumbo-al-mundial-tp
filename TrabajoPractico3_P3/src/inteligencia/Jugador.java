@@ -12,7 +12,7 @@ public class Jugador implements Serializable{
 	private Posicion posicion;
 	private int nivelJuego;
 //	private String incompatible;
-	public Jugador incompatible;  //Lizz estuvo aqui
+//	public Jugador incompatible;  //Lizz estuvo aqui
 	
 	
 	
@@ -41,8 +41,7 @@ public class Jugador implements Serializable{
 	//pruebas
 	
 	//Lizz estuvo aqui
-	public Jugador(String nombre,Posicion posicion, int nivelJuego)
-	{
+	public Jugador(String nombre,Posicion posicion, int nivelJuego){
 		this.nombre=nombre;
 		this.posicion=posicion;
 		this.nivelJuego=nivelJuego;

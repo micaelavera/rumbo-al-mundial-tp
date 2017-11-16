@@ -64,7 +64,7 @@ public class Jugadores {
 		String ret = "";
 		for(Jugador jugador: jugadores)
 			ret += (ret.length() > 0 ? "\n" : "") + jugador.nombre()
-		+ " "+jugador.posicion()+ " "+ jugador.nivelJuego()+" "+ jugador.incompatible();
+		+ " "+jugador.posicion()+ " "+ jugador.nivelJuego();
 		
 		return ret;
 	}

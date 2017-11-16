@@ -4,20 +4,20 @@ package inteligencia;
 public class TuplaIncompatibles<T1, T2>  //Lizz estuvo aqui
 {
 
-	T1 e1;
-	T2 e2;
+	T1 jugador1;
+	T2 jugador2;
 
 	public TuplaIncompatibles(T1 e1, T2 e2) 
 	{
-		this.e1 = e1;
-		this.e2 = e2;
+		this.jugador1 = e1;
+		this.jugador2 = e2;
 	}
 
 
 	@Override
 	public String toString() 
 	{
-		String ret = e1.toString() + "," + e2.toString() + ";";
+		String ret = jugador1.toString() + "," + jugador2.toString() + ";";
 		return ret;
 	}
 

@@ -71,6 +71,7 @@ public class Incompatibles {
 	
 		System.out.println(i.toString());
 		i.entraUnodelPar(j);
+		System.out.println();
 		
 		System.out.println(j.toString());
 	}

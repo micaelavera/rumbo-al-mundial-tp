@@ -29,23 +29,24 @@ public class Jugador implements Serializable{
 	
 	
 	//Lizz estuvo aqui
-	public Jugador(String nombre,Posicion posicion,int nivelJuego, Jugador incompatible)
-	{
-		verificarNivelDeJuego(nivelJuego);
-		this.nombre=nombre;
-		this.posicion=posicion;
-		this.nivelJuego=nivelJuego;
-		this.incompatible=incompatible;
-		
-	}
+//	public Jugador(String nombre,Posicion posicion,int nivelJuego, Jugador incompatible)
+//	{
+//		verificarNivelDeJuego(nivelJuego);
+//		this.nombre=nombre;
+//		this.posicion=posicion;
+//		this.nivelJuego=nivelJuego;
+//		this.incompatible=incompatible;
+//		
+//	}
 	//pruebas
 	
 	//Lizz estuvo aqui
-	public Jugador(String nombre, int nivelJuego, Jugador incompatible)
+	public Jugador(String nombre,Posicion posicion, int nivelJuego)
 	{
 		this.nombre=nombre;
+		this.posicion=posicion;
 		this.nivelJuego=nivelJuego;
-		this.incompatible=incompatible;
+	
 		
 	}
 	
@@ -53,7 +54,7 @@ public class Jugador implements Serializable{
 
 	public void verificarNivelDeJuego(int nivelDeJuego) {
 		if(nivelDeJuego < 0 || nivelDeJuego > 10 )
-			throw new IllegalArgumentException("Se intent� agregar un jugador con un nivel de juego fuera de rango.");
+			throw new IllegalArgumentException("Se intento agregar un jugador con un nivel de juego fuera de rango.");
 	}
 	
 	public boolean mismaPosicion(Posicion pos){
@@ -79,8 +80,8 @@ public class Jugador implements Serializable{
 //		return incompatible;
 //	}
 	
-	public String incompatible() //Liz estuvo aqui
-	{
-	return incompatible.nombre;
-}
+//	public String incompatible() //Liz estuvo aqui
+//	{
+//	return incompatible.nombre;
+//}
 }

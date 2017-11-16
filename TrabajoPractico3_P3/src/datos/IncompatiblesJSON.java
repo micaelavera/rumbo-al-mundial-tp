@@ -21,7 +21,7 @@ public class IncompatiblesJSON {
 		ParesIncompatibles=new ArrayList<TuplaIncompatibles<Jugador,Jugador>>();
 	}
 	
-	public void agregar(Jugador j1,Jugador j2){
+	public void agregarPar(Jugador j1,Jugador j2){
 		ParesIncompatibles.add(new TuplaIncompatibles<Jugador, Jugador>(j1, j2) );
 	}
 

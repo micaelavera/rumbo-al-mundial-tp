@@ -28,7 +28,7 @@ public class JugadoresJson {
 		return jugadores.size();
 	}
 	
-	public Jugador obtenerJugador(int i){
+	public Jugador getJugador(int i){
 		return jugadores.get(i);
 	}
 

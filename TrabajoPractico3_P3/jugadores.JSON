@@ -3,152 +3,127 @@
     {
       "nombre": "Romero",
       "posicion": "Arquero",
-      "nivelJuego": 10,
-      "incompatible": "Mascherano"
+      "nivelJuego": 10
     },
     {
       "nombre": "Marchesin",
       "posicion": "Arquero",
-      "nivelJuego": 5,
-      "incompatible": "Otamendi"
+      "nivelJuego": 5
     },
     {
       "nombre": "Guzman",
       "posicion": "Arquero",
-      "nivelJuego": 7,
-      "incompatible": "Perez"
+      "nivelJuego": 7
     },
     {
       "nombre": "Mascherano",
       "posicion": "Defensor",
-      "nivelJuego": 5,
-      "incompatible": "Salvio"
+      "nivelJuego": 5
     },
     {
       "nombre": "Fazio",
       "posicion": "Defensor",
-      "nivelJuego": 2,
-      "incompatible": "Rigoni"
+      "nivelJuego": 2
     },
     {
       "nombre": "Mercado",
       "posicion": "Defensor",
-      "nivelJuego": 7,
-      "incompatible": "Mercado"
+      "nivelJuego": 7
     },
     {
       "nombre": "Otamendi",
       "posicion": "Defensor",
-      "nivelJuego": 6,
-      "incompatible": "Jugador2"
+      "nivelJuego": 6
     },
     {
       "nombre": "Pezzela",
       "posicion": "Defensor",
-      "nivelJuego": 8,
-      "incompatible": "Jugador2"
+      "nivelJuego": 8
     },
     {
       "nombre": "Insua",
       "posicion": "Defensor",
-      "nivelJuego": 3,
-      "incompatible": "Jugador2"
+      "nivelJuego": 3
     },
     {
       "nombre": "Salvio",
       "posicion": "Mediocampista",
-      "nivelJuego": 4,
-      "incompatible": "Icardi"
+      "nivelJuego": 4
     },
     {
       "nombre": "Banega",
       "posicion": "Mediocampista",
-      "nivelJuego": 2,
-      "incompatible": "Jugador2"
+      "nivelJuego": 2
     },
     {
       "nombre": "Acuna",
       "posicion": "Mediocampista",
-      "nivelJuego": 8,
-      "incompatible": "Messi"
+      "nivelJuego": 8
     },
     {
       "nombre": "Paredes",
       "posicion": "Mediocampista",
-      "nivelJuego": 2,
-      "incompatible": "Jugador2"
+      "nivelJuego": 2
     },
     {
       "nombre": "Rigoni",
       "posicion": "Mediocampista",
-      "nivelJuego": 2,
-      "incompatible": "Jugador2"
+      "nivelJuego": 2
     },
     {
       "nombre": "Kranevitter",
       "posicion": "Mediocampista",
-      "nivelJuego": 9,
-      "incompatible": "Jugador2"
+      "nivelJuego": 9
     },
     {
       "nombre": "Perotti",
       "posicion": "Mediocampista",
-      "nivelJuego": 5,
-      "incompatible": "Jugador2"
+      "nivelJuego": 5
     },
     {
       "nombre": "Belluschi",
       "posicion": "Mediocampista",
-      "nivelJuego": 5,
-      "incompatible": "Jugador2"
+      "nivelJuego": 5
     },
     {
       "nombre": "Perez",
       "posicion": "Mediocampista",
-      "nivelJuego": 6,
-      "incompatible": "Jugador2"
+      "nivelJuego": 6
     },
     {
       "nombre": "Messi",
       "posicion": "Delantero",
-      "nivelJuego": 7,
-      "incompatible": "Jugador2"
+      "nivelJuego": 7
     },
     {
       "nombre": "Icardi",
       "posicion": "Delantero",
-      "nivelJuego": 6,
-      "incompatible": "Jugador2"
+      "nivelJuego": 6
     },
     {
       "nombre": "Di Maria",
       "posicion": "Delantero",
-      "nivelJuego": 5,
-      "incompatible": "Jugador2"
+      "nivelJuego": 5
     },
     {
       "nombre": "Dybala",
       "posicion": "Delantero",
-      "nivelJuego": 4,
-      "incompatible": "Perez"
+      "nivelJuego": 4
     },
     {
       "nombre": "Benedetto",
       "posicion": "Delantero",
-      "nivelJuego": 3,
-      "incompatible": "Pavon"
+      "nivelJuego": 3
     },
     {
       "nombre": "Pavon",
       "posicion": "Delantero",
-      "nivelJuego": 7,
-      "incompatible": "Aguero"
+      "nivelJuego": 7
     },
     {
       "nombre": "Aguero",
       "posicion": "Delantero",
-      "nivelJuego": 5,
-      "incompatible": "Di Maria"
+      "nivelJuego": 5
     }
   ]
 }

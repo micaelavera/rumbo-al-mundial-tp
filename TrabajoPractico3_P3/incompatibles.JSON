@@ -7,6 +7,18 @@
         "nivelJuego": 10
       },
       "jugador2": {
+        "nombre": "Mascherano",
+        "posicion": "Defensor",
+        "nivelJuego": 5
+      }
+    },
+    {
+      "jugador1": {
+        "nombre": "Marchesin",
+        "posicion": "Arquero",
+        "nivelJuego": 5
+      },
+      "jugador2": {
         "nombre": "Guzman",
         "posicion": "Arquero",
         "nivelJuego": 7
@@ -14,14 +26,74 @@
     },
     {
       "jugador1": {
-        "nombre": "Romero",
+        "nombre": "Guzman",
         "posicion": "Arquero",
-        "nivelJuego": 10
+        "nivelJuego": 7
       },
       "jugador2": {
+        "nombre": "Perez",
+        "posicion": "Mediocampista",
+        "nivelJuego": 6
+      }
+    },
+    {
+      "jugador1": {
         "nombre": "Mascherano",
         "posicion": "Defensor",
         "nivelJuego": 5
+      },
+      "jugador2": {
+        "nombre": "Salvio",
+        "posicion": "Mediocampista",
+        "nivelJuego": 4
+      }
+    },
+    {
+      "jugador1": {
+        "nombre": "Fazio",
+        "posicion": "Defensor",
+        "nivelJuego": 2
+      },
+      "jugador2": {
+        "nombre": "Rigoni",
+        "posicion": "Mediocampista",
+        "nivelJuego": 2
+      }
+    },
+    {
+      "jugador1": {
+        "nombre": "Otamendi",
+        "posicion": "Defensor",
+        "nivelJuego": 6
+      },
+      "jugador2": {
+        "nombre": "Guzman",
+        "posicion": "Arquero",
+        "nivelJuego": 7
+      }
+    },
+    {
+      "jugador1": {
+        "nombre": "Salvio",
+        "posicion": "Mediocampista",
+        "nivelJuego": 4
+      },
+      "jugador2": {
+        "nombre": "Icardi",
+        "posicion": "Delantero",
+        "nivelJuego": 6
+      }
+    },
+    {
+      "jugador1": {
+        "nombre": "Guzman",
+        "posicion": "Arquero",
+        "nivelJuego": 7
+      },
+      "jugador2": {
+        "nombre": "Perez",
+        "posicion": "Mediocampista",
+        "nivelJuego": 6
       }
     }
   ]

@@ -51,6 +51,7 @@ public class Solver{
 		return _incumbente;
 	}
 	
+	
 	public void generarDesde(int i){
 		if( i == _instancia.cantidadDeJugadores() )
 		{

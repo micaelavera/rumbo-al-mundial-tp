@@ -6,12 +6,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 
-
-//import java.util.Comparator;
-//
-//import datos.JugadoresJson;
-import inteligencia.Incompatibles;
-
 public class Solver{
 
 	private ArrayList<Jugador> _jugadores;
@@ -23,17 +17,13 @@ public class Solver{
 	
 	ArrayList<Jugador> jugadoresSolucion;
 	
-	
-//	ArrayList<TuplaIncompatibles<Jugador, Jugador>> ParesIncompatibles;
-	
+
 	public Solver(Jugadores instancia,Algoritmo algoritmo){
 		_instancia=instancia;
 		_algoritmo=algoritmo;
 		_jugadores=_instancia.getJugadores();
 		jugadoresSolucion= new ArrayList<Jugador>();
-		
-//		ParesIncompatibles= new ArrayList<TuplaIncompatibles<Jugador,Jugador>>();
-		
+
 	}
 
 	public void ordenarJugadores(){

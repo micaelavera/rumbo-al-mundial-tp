@@ -3,7 +3,7 @@ package interfaz;
 import imagenes.Fondo;
 import inteligencia.Jugador;
 import inteligencia.Jugadores;
-import inteligencia.PosicionJuego.Posicion;
+
 import inteligencia.Solucion;
 import inteligencia.Solver;
 import inteligencia.Solver.Algoritmo;
@@ -13,9 +13,7 @@ import java.awt.Toolkit;
 
 import javax.swing.JDialog;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
 
-import java.awt.Font;
 import java.util.ArrayList;
 
 import javax.swing.JTextField;
@@ -29,7 +27,7 @@ public class EquipoIdeal extends JDialog {
 	
 	private Fondo fondo_2;
 	private Solver solver;
-	private Solver jugadoresSolver;
+	
 	private Jugadores jugadores;
 	Jugadores inst;
 	Solucion solucion;
@@ -80,13 +78,17 @@ public class EquipoIdeal extends JDialog {
 		fondo_2.setLayout(null);
 		
 		arquero = new JTextField(jugadores.get(0).nombre());
+		arquero.setEditable(false);
 		arquero.setBackground(new Color(0, 100, 0));
+		
+		
 		arquero.setForeground(new Color(255, 255, 255));
 		arquero.setBounds(41, 232, 86, 20);
 		fondo_2.add(arquero);
 		arquero.setColumns(10);
 		
 		defensor1 = new JTextField(jugadores.get(1).nombre());
+		defensor1.setEditable(false);
 		defensor1.setForeground(Color.WHITE);
 		defensor1.setColumns(10);
 		defensor1.setBackground(new Color(0, 100, 0));
@@ -94,6 +96,7 @@ public class EquipoIdeal extends JDialog {
 		fondo_2.add(defensor1);
 		
 		defensor2 = new JTextField(jugadores.get(2).nombre());
+		defensor2.setEditable(false);
 		defensor2.setForeground(Color.WHITE);
 		defensor2.setColumns(10);
 		defensor2.setBackground(new Color(0, 100, 0));
@@ -101,6 +104,7 @@ public class EquipoIdeal extends JDialog {
 		fondo_2.add(defensor2);
 		
 		defensor3 = new JTextField(jugadores.get(3).nombre());
+		defensor3.setEditable(false);
 		defensor3.setForeground(Color.WHITE);
 		defensor3.setColumns(10);
 		defensor3.setBackground(new Color(0, 100, 0));
@@ -108,6 +112,7 @@ public class EquipoIdeal extends JDialog {
 		fondo_2.add(defensor3);
 		
 		defensor4 = new JTextField(jugadores.get(4).nombre());
+		defensor4.setEditable(false);
 		defensor4.setForeground(Color.WHITE);
 		defensor4.setColumns(10);
 		defensor4.setBackground(new Color(0, 100, 0));
@@ -115,6 +120,7 @@ public class EquipoIdeal extends JDialog {
 		fondo_2.add(defensor4);
 		
 		mediocampista1 = new JTextField(jugadores.get(5).nombre());
+		mediocampista1.setEditable(false);
 		mediocampista1.setForeground(Color.WHITE);
 		mediocampista1.setColumns(10);
 		mediocampista1.setBackground(new Color(0, 100, 0));
@@ -122,6 +128,7 @@ public class EquipoIdeal extends JDialog {
 		fondo_2.add(mediocampista1);
 		
 		mediocampista2 = new JTextField(jugadores.get(6).nombre());
+		mediocampista2.setEditable(false);
 		mediocampista2.setForeground(Color.WHITE);
 		mediocampista2.setColumns(10);
 		mediocampista2.setBackground(new Color(0, 100, 0));
@@ -129,6 +136,7 @@ public class EquipoIdeal extends JDialog {
 		fondo_2.add(mediocampista2);
 		
 		mediocampista3 = new JTextField(jugadores.get(7).nombre());
+		mediocampista3.setEditable(false);
 		mediocampista3.setForeground(Color.WHITE);
 		mediocampista3.setColumns(10);
 		mediocampista3.setBackground(new Color(0, 100, 0));
@@ -136,6 +144,7 @@ public class EquipoIdeal extends JDialog {
 		fondo_2.add(mediocampista3);
 		
 		delantero1 = new JTextField(jugadores.get(8).nombre());
+		delantero1.setEditable(false);
 		delantero1.setForeground(Color.WHITE);
 		delantero1.setColumns(10);
 		delantero1.setBackground(new Color(0, 100, 0));
@@ -143,6 +152,7 @@ public class EquipoIdeal extends JDialog {
 		fondo_2.add(delantero1);
 		
 		delantero2 = new JTextField(jugadores.get(9).nombre());
+		delantero2.setEditable(false);
 		delantero2.setForeground(Color.WHITE);
 		delantero2.setColumns(10);
 		delantero2.setBackground(new Color(0, 100, 0));
@@ -150,6 +160,7 @@ public class EquipoIdeal extends JDialog {
 		fondo_2.add(delantero2);
 		
 		delantero3 = new JTextField(jugadores.get(10).nombre());
+		delantero3.setEditable(false);
 		delantero3.setForeground(Color.WHITE);
 		delantero3.setColumns(10);
 		delantero3.setBackground(new Color(0, 100, 0));

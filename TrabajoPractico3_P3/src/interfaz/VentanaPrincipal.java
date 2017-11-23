@@ -1,28 +1,23 @@
 package interfaz;
 
-import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.border.EmptyBorder;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import imagenes.Fondo;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.io.File;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
 public class VentanaPrincipal {
-
+	
 	private JFrame frame;
-	private Fondo fondo;
-	private JTextField buscador;
+	private JPasswordField contrasenia;
+	private JTextField txtUsuario;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -44,73 +39,61 @@ public class VentanaPrincipal {
 	private void initialize() {
 		frame = new JFrame("Rumbo al mundial");
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaPrincipal.class.getResource("/imagenes/pelota.png")));
-		frame.setBounds(250, 100, 800, 550);
+		frame.setBounds(320, 150, 400,300);
+		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 	
-	
-		fondo = new Fondo();
-		fondo.setBackground(Color.BLACK);
-		fondo.setBorder(new EmptyBorder(5, 5, 5, 5));
-		frame.setContentPane(fondo);
-		fondo.setLayout(null);
-	
+		JLabel lblBienvenida = new JLabel("\u00A1Bienvenido director t\u00E9cnico!");
+		lblBienvenida.setHorizontalAlignment(SwingConstants.CENTER);
+		lblBienvenida.setFont(new Font("Consolas", Font.PLAIN, 16));
+		lblBienvenida.setBounds(23, 34, 361, 14);
+		frame.getContentPane().add(lblBienvenida);
 		
-		JButton buscarArchivo = new JButton("Buscar archivo");
-		buscarArchivo.setFont(new Font("Consolas", Font.PLAIN, 14));
-		buscarArchivo.addActionListener(new ActionListener() {
+		JLabel usuario = new JLabel("Usuario:");
+		usuario.setFont(new Font("Consolas", Font.PLAIN, 14));
+		usuario.setHorizontalAlignment(SwingConstants.CENTER);
+		usuario.setBounds(23, 92, 77, 14);
+		frame.getContentPane().add(usuario);
+		
+		JLabel contraseña = new JLabel("Contrase\u00F1a:");
+		contraseña.setFont(new Font("Consolas", Font.PLAIN, 15));
+		contraseña.setBounds(23, 136, 88, 14);
+		frame.getContentPane().add(contraseña);
+		
+		txtUsuario = new JTextField();
+		txtUsuario.setFont(new Font("Consolas", Font.PLAIN, 15));
+		txtUsuario.setBounds(120, 89, 264, 20);
+		frame.getContentPane().add(txtUsuario);
+		txtUsuario.setColumns(10);
+		
+		contrasenia = new JPasswordField();
+		contrasenia.setFont(new Font("Consolas", Font.PLAIN, 15));
+		contrasenia.setBounds(120, 133, 264, 20);
+		frame.getContentPane().add(contrasenia);
+		
+		JButton cargarDatos = new JButton("Cargar datos");
+		cargarDatos.setFont(new Font("Consolas", Font.PLAIN, 15));
+		cargarDatos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JFileChooser direccionArchivo=new JFileChooser();
-				FileNameExtensionFilter filter = new FileNameExtensionFilter("*.JSON","JSON");
-				direccionArchivo.setFileFilter(filter);
-
-				direccionArchivo.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-				direccionArchivo.showOpenDialog(direccionArchivo);
-			
-				File archivo = direccionArchivo.getSelectedFile(); 
-				buscador.setText(archivo.getAbsolutePath());		
-				}
-		});
-		buscarArchivo.setBounds(237, 269, 316, 23);
-		fondo.add(buscarArchivo);
-		
-		buscador = new JTextField();
-		buscador.setEditable(false);
-		buscador.setBounds(211, 215, 377, 20);
-		fondo.add(buscador);
-		buscador.setColumns(10);
-		
-		JLabel lblCargarArchivo = new JLabel("Busque el archivo correspondiente");
-		lblCargarArchivo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCargarArchivo.setFont(new Font("Consolas", Font.PLAIN, 16));
-		lblCargarArchivo.setForeground(Color.WHITE);
-		lblCargarArchivo.setBounds(237, 244, 308, 14);
-		fondo.add(lblCargarArchivo);
-		
-		JLabel direccionArchivo = new JLabel("Direccion de archivo:");
-		direccionArchivo.setForeground(Color.WHITE);
-		direccionArchivo.setFont(new Font("Consolas", Font.PLAIN, 15));
-		direccionArchivo.setBounds(211, 193, 266, 14);
-		fondo.add(direccionArchivo);
-		
-		JButton cargarArchivo = new JButton("Cargar archivo");
-		cargarArchivo.setFont(new Font("Consolas", Font.PLAIN, 14));
-		cargarArchivo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(buscador.getText().isEmpty() || !buscador.getText().contains("jugadores.JSON")){
-					JOptionPane.showMessageDialog(null, "Debe buscar el archivo correspondiente", "Mensaje", JOptionPane.ERROR_MESSAGE);
-				}else{
-					Equipo equipo=new Equipo();
-					equipo.setVisible(true);
+				String password=new String(contrasenia.getPassword());
+				if(chequearDatos(password)){
+					CargaJugadores p=new CargaJugadores();
+					p.setVisible(true);
 					frame.dispose();
+					JOptionPane.showMessageDialog(null,"Debe cargar el archivo de los jugadores convocados","Mensaje",JOptionPane.INFORMATION_MESSAGE);
+				}else{
+					JOptionPane.showMessageDialog(null,"Debe cargar los datos correspondientes","Mensaje",JOptionPane.ERROR_MESSAGE);
 				}
-			}});
-		cargarArchivo.setBounds(237, 316, 316, 23);
-		fondo.add(cargarArchivo);
-			 
+			}
+		});
+		cargarDatos.setBounds(82, 189, 253, 23);
+		frame.getContentPane().add(cargarDatos);
 	}
-
-	public JTextField getBuscador() {
-		return buscador;
+	
+	
+	private boolean chequearDatos(String password) {
+		return txtUsuario.getText().equals("JavierMarenco")&& password.equals("jmarenco") ||
+				txtUsuario.getText().equals("PatriciaBagnes") && password.equals("pbagnes");
 	}
 }

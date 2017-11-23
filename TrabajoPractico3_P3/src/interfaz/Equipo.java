@@ -10,7 +10,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
-import javax.swing.UIManager;
 import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
@@ -25,10 +24,6 @@ public class Equipo extends JDialog {
 			Equipo dialog = new Equipo();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
-			setDefaultLookAndFeelDecorated(true);
-		    JDialog.setDefaultLookAndFeelDecorated(true);
-			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -40,8 +35,9 @@ public class Equipo extends JDialog {
 		setBounds(250, 100, 800, 550);
 		getContentPane().setLayout(null);
 		jugadores=new Jugadores();
-		//TODO: cargar jugadores sea generico
+		
 		jugadores.cargarJugadores("jugadores.JSON");
+//		jugadores.cargarJugadores(CargaJugadores.getBuscador().getText());
 		
 		Incompatibles inc=new Incompatibles();
 		inc.cargarJugadores("incompatibles.JSON");
@@ -74,7 +70,7 @@ public class Equipo extends JDialog {
 		tablaIncompatibles.setModel(new TablaJugadoresIncompatibles(inc.getParesIncompatibles()));
 		
 		
-		JButton btnGenerarEquipo = new JButton("Generar equipo ");
+		JButton btnGenerarEquipo = new JButton("Generar equipo");
 		btnGenerarEquipo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				EquipoIdeal equipo=new EquipoIdeal();

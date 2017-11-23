@@ -10,8 +10,8 @@ public class TablaJugadores extends AbstractTableModel{
 	private String[] columnas; 
 	private ArrayList<Jugador> jugadores;
 
-	public TablaJugadores(ArrayList<Jugador> arrayList){
-		jugadores=arrayList;
+	public TablaJugadores(ArrayList<Jugador> jugadores){
+		this.jugadores=jugadores;
 		columnas=new String[]{"Nombre","Posicion","Nivel de juego"};
 	}
 	
@@ -41,7 +41,6 @@ public class TablaJugadores extends AbstractTableModel{
 			case 0:return jugadores.get(fila).nombre();
 			case 1:return jugadores.get(fila).posicion();
 			case 2:return jugadores.get(fila).nivelJuego();
-//			case 3: return jugadores.get(fila).
 			default:return null;
 		}
 	}

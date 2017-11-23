@@ -2,7 +2,7 @@ package interfaz;
 
 import java.util.ArrayList;
 
-import inteligencia.Incompatibilidad;
+import inteligencia.Incompatibles;
 import inteligencia.TuplaIncompatibles;
 
 import javax.swing.table.AbstractTableModel;

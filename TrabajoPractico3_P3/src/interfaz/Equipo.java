@@ -1,6 +1,6 @@
 package interfaz;
 
-import inteligencia.Incompatibilidad;
+import inteligencia.Incompatibles;
 import inteligencia.Jugadores;
 
 import java.awt.Toolkit;
@@ -19,7 +19,8 @@ public class Equipo extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private Jugadores jugadores;
 
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		try {
 			Equipo dialog = new Equipo();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -29,7 +30,8 @@ public class Equipo extends JDialog {
 		}
 	}
 
-	public Equipo() {
+	public Equipo() 
+	{
 		setTitle("Rumbo al mundial");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Equipo.class.getResource("/imagenes/pelota.png")));
 		setBounds(250, 100, 800, 550);
@@ -39,7 +41,7 @@ public class Equipo extends JDialog {
 		jugadores.cargarJugadores("jugadores.JSON");
 //		jugadores.cargarJugadores(CargaJugadores.getBuscador().getText());
 		
-		Incompatibilidad inc=new Incompatibilidad();
+		Incompatibles inc=new Incompatibles();
 		inc.cargarJugadores("incompatibles.JSON");
 		
 		JTabbedPane pestania= new JTabbedPane(JTabbedPane.TOP);
@@ -71,8 +73,10 @@ public class Equipo extends JDialog {
 		
 		
 		JButton btnGenerarEquipo = new JButton("Generar equipo");
-		btnGenerarEquipo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		btnGenerarEquipo.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
 				EquipoIdeal equipo=new EquipoIdeal();
 				equipo.setVisible(true);
 //				dispose();

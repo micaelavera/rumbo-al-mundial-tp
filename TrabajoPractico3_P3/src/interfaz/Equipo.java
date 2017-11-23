@@ -1,6 +1,6 @@
 package interfaz;
 
-import inteligencia.Incompatibles;
+import inteligencia.Incompatibilidad;
 import inteligencia.Jugadores;
 
 import java.awt.Toolkit;
@@ -39,7 +39,7 @@ public class Equipo extends JDialog {
 		jugadores.cargarJugadores("jugadores.JSON");
 //		jugadores.cargarJugadores(CargaJugadores.getBuscador().getText());
 		
-		Incompatibles inc=new Incompatibles();
+		Incompatibilidad inc=new Incompatibilidad();
 		inc.cargarJugadores("incompatibles.JSON");
 		
 		JTabbedPane pestania= new JTabbedPane(JTabbedPane.TOP);

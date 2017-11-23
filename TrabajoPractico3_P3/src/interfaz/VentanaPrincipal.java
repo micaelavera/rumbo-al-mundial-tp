@@ -56,10 +56,10 @@ public class VentanaPrincipal {
 		usuario.setBounds(23, 92, 77, 14);
 		frame.getContentPane().add(usuario);
 		
-		JLabel contraseña = new JLabel("Contrase\u00F1a:");
-		contraseña.setFont(new Font("Consolas", Font.PLAIN, 15));
-		contraseña.setBounds(23, 136, 88, 14);
-		frame.getContentPane().add(contraseña);
+		JLabel contrasena = new JLabel("Contrase\u00F1a:");
+		contrasena.setFont(new Font("Consolas", Font.PLAIN, 15));
+		contrasena.setBounds(23, 136, 88, 14);
+		frame.getContentPane().add(contrasena);
 		
 		txtUsuario = new JTextField();
 		txtUsuario.setFont(new Font("Consolas", Font.PLAIN, 15));

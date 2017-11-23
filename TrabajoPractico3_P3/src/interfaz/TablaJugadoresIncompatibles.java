@@ -1,10 +1,7 @@
 package interfaz;
 
 import java.util.ArrayList;
-
-import inteligencia.Incompatibles;
 import inteligencia.TuplaIncompatibles;
-
 import javax.swing.table.AbstractTableModel;
 import inteligencia.Jugador;
 

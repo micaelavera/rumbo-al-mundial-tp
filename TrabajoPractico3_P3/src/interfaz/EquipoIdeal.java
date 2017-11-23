@@ -17,6 +17,8 @@ import javax.swing.border.EmptyBorder;
 import java.util.ArrayList;
 
 import javax.swing.JTextField;
+import java.awt.Font;
+import javax.swing.JLabel;
 
 public class EquipoIdeal extends JDialog {
 
@@ -43,6 +45,8 @@ public class EquipoIdeal extends JDialog {
 	private JTextField delantero1;
 	private JTextField delantero2;
 	private JTextField delantero3;
+	private JTextField nivelDeJuegoTotal;
+	private JLabel lblNivelDeJuego;
 	
 	public static void main(String[] args) {
 		try {
@@ -167,9 +171,24 @@ public class EquipoIdeal extends JDialog {
 		delantero3.setBounds(527, 324, 86, 20);
 		fondo_2.add(delantero3);
 		
+		nivelDeJuegoTotal = new JTextField(""+optima.nivelJuego());
+		nivelDeJuegoTotal.setEnabled(false);
+		nivelDeJuegoTotal.setEditable(false);
+		nivelDeJuegoTotal.setBackground(Color.BLUE);
+		nivelDeJuegoTotal.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		nivelDeJuegoTotal.setForeground(Color.WHITE);
+		nivelDeJuegoTotal.setBounds(373, 451, 34, 20);
+		fondo_2.add(nivelDeJuegoTotal);
+		nivelDeJuegoTotal.setColumns(10);
+		
+		lblNivelDeJuego = new JLabel("Nivel de juego total:");
+		lblNivelDeJuego.setForeground(Color.WHITE);
+		lblNivelDeJuego.setBackground(new Color(0, 100, 0));
+		lblNivelDeJuego.setBounds(250, 454, 113, 14);
+		fondo_2.add(lblNivelDeJuego);
+		
 
 
 		
 	}
-
 }

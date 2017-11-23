@@ -15,6 +15,7 @@ public class Solver{
 	public enum Algoritmo{BacktrackingOrdenado,FuerzaBruta};
 	private Algoritmo _algoritmo;
 	
+	
 	ArrayList<Jugador> jugadoresSolucion;
 	
 

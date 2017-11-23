@@ -34,8 +34,29 @@ public class Incompatibilidad {
 				jugadores.eliminarJugador(TI.jugador1);
 			}
 	}
+	
+	public boolean pertenecePar(Jugador j1, Jugador j2)
+	{
+		for(TuplaIncompatibles<Jugador, Jugador> TI: paresIncompatibles)
+			if(TI.jugador1.equals(j1) && TI.jugador2.equals(j2)  )
+				return true;
+			else{
+					for(TuplaIncompatibles<Jugador, Jugador> Ti: paresIncompatibles)
+						if(TI.jugador1.equals(j2) && TI.jugador2.equals(j1)  )
+							return true;
+				}
+		return false;
+			
+	}
 
-	public ArrayList<TuplaIncompatibles<Jugador, Jugador>> getParesIncompatibles() {
+		public boolean esIncompatible(Jugador j1,Jugador j2)
+		{
+			if (pertenecePar(j1, j2) ) return true;
+		return false;
+		}
+
+	public
+ ArrayList<TuplaIncompatibles<Jugador, Jugador>> getParesIncompatibles() {
 		return paresIncompatibles;
 	}
 	

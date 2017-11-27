@@ -18,6 +18,7 @@ import java.awt.event.ActionEvent;
 public class Equipo extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private Jugadores jugadores;
+	private Incompatibilidad incompatibles;
 
 	public static void main(String[] args)
 	{
@@ -30,22 +31,23 @@ public class Equipo extends JDialog {
 		}
 	}
 
-	public Equipo() 
-	{
-		setTitle("Rumbo al mundial");
+	public Equipo() {
+		setTitle("Rumbo al mundial - Jugadores");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Equipo.class.getResource("/imagenes/pelota.png")));
 		setBounds(250, 100, 800, 550);
 		getContentPane().setLayout(null);
 		jugadores=new Jugadores();
+		incompatibles=new Incompatibilidad();
+		
+		//TODO: Descomentar lo siguiente
+//		jugadores.cargarJugadores(CargaJugadores.buscadorJugadores().getText());
+//		incompatibles.cargarJugadores(CargaJugadores.buscadorIncompatibles().getText());
 		
 		jugadores.cargarJugadores("jugadores.JSON");
-//		jugadores.cargarJugadores(CargaJugadores.getBuscador().getText());
-		
-		Incompatibilidad inc=new Incompatibilidad();
-		inc.cargarJugadores("incompatibles.JSON");
+		incompatibles.cargarJugadores("incompatibles.JSON");
 		
 		JTabbedPane pestania= new JTabbedPane(JTabbedPane.TOP);
-		pestania.setBounds(10, 20, 750, 469);
+		pestania.setBounds(10, 20, 750, 480);
 		getContentPane().add(pestania);
 		
 		JPanel panelJugadores=new JPanel();
@@ -56,37 +58,31 @@ public class Equipo extends JDialog {
 		pestania.addTab("Jugadores incompatibles",panelIncompatibles);
 		panelIncompatibles.setLayout(null);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(6, 6, 602, 445);
-		panelJugadores.add(scrollPane);	
+		JScrollPane scrollPaneJugadores = new JScrollPane();
+		scrollPaneJugadores.setBounds(6, 6, 739, 396);
+		panelJugadores.add(scrollPaneJugadores);	
 		
 		JTable tablaJugadores=new JTable();
-		scrollPane.setViewportView(tablaJugadores);
+		scrollPaneJugadores.setViewportView(tablaJugadores);
 		tablaJugadores.setModel(new TablaJugadores(jugadores.getJugadores()));
 		
-		JScrollPane scrollPane2 = new JScrollPane();
-		scrollPane2.setBounds(6, 6, 738, 445);
-		panelIncompatibles.add(scrollPane2);	
+		JScrollPane scrollPaneIncompatibles = new JScrollPane();
+		scrollPaneIncompatibles.setBounds(6, 6, 738, 445);
+		panelIncompatibles.add(scrollPaneIncompatibles);	
 		JTable tablaIncompatibles=new JTable();
-		scrollPane2.setViewportView(tablaIncompatibles);
-		tablaIncompatibles.setModel(new TablaJugadoresIncompatibles(inc.getParesIncompatibles()));
+		scrollPaneIncompatibles.setViewportView(tablaIncompatibles);
+		tablaIncompatibles.setModel(new TablaJugadoresIncompatibles(incompatibles.getParesIncompatibles()));
 		
 		
 		JButton btnGenerarEquipo = new JButton("Generar equipo");
-		btnGenerarEquipo.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0) 
-			{
+		btnGenerarEquipo.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0){
 				EquipoIdeal equipo=new EquipoIdeal();
 				equipo.setVisible(true);
-//				dispose();
+				dispose();
 			}
 		});
-		btnGenerarEquipo.setBounds(609, 405, 155, 28);
-		panelJugadores.add(btnGenerarEquipo);
-		
-	
-		
-		
+		btnGenerarEquipo.setBounds(580, 413, 155, 28);
+		panelJugadores.add(btnGenerarEquipo);	
 	}
 }

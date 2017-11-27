@@ -8,8 +8,6 @@ import org.junit.Test;
 
 public class JugadorTest {
 	
-	
-
 	@Test(expected=IllegalArgumentException.class)
 	public void nivelDeJuegoNegativoTest() {
 		@SuppressWarnings("unused")
@@ -33,11 +31,4 @@ public class JugadorTest {
 		Jugador jugador=new Jugador("Romero",Posicion.Arquero,10);
 		assertEquals(Posicion.Arquero,jugador.posicion());
 	}
-	
-
-	
-	
-
-	
-
 }

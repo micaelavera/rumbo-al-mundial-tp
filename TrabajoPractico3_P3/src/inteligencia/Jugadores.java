@@ -26,7 +26,16 @@ public class Jugadores {
 		jugadores.remove(jugador);
 		nivelJuegoTotal-=jugador.nivelJuego();
 	}
-
+	
+	public void cargarJugadores(String archivo){
+		try{
+			JugadoresJson jugadoresJson= JugadoresJson.leerGSON(archivo);
+			jugadores=jugadoresJson.getJugadores();
+			
+		}catch(IllegalArgumentException e){
+			throw new IllegalArgumentException("No se encuentra el listado de materias con nombre: "+ archivo);
+		}
+	}
 	
 	public int cantidadDeJugadores(){
 		return jugadores.size();
@@ -43,20 +52,14 @@ public class Jugadores {
 	public int getNivelJuegoTotal() {
 		return nivelJuegoTotal;
 	}
+	
+	public boolean existeJugador(Jugador jugador){
+		return jugadores.contains(jugador);
+	}
 
 	@SuppressWarnings("unchecked")
 	public ArrayList<Jugador> getJugadores() {
 		return (ArrayList<Jugador>) jugadores.clone();
-	}
-	
-	public void cargarJugadores(String archivo){
-		try{
-			JugadoresJson jugadoresJson= JugadoresJson.leerGSON(archivo);
-			jugadores=jugadoresJson.getJugadores();
-			
-		}catch(IllegalArgumentException e){
-			throw new IllegalArgumentException("No se encuentra el listado de materias con nombre: "+ archivo);
-		}
 	}
 	
 	@Override

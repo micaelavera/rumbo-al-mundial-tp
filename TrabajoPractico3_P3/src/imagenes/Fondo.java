@@ -2,25 +2,23 @@ package imagenes;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
-
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-public class Fondo extends JPanel {
-
-	private static final long serialVersionUID = 1L;
-
-	public Fondo(){
-		this.setSize(800, 550);
+@SuppressWarnings("serial")
+public class Fondo extends JPanel{
+	public String imagen;
+	
+	public Fondo(String imagen){
+		this.setSize(800,550);
+		this.imagen = imagen;
 	}
 	
 	@Override
-	public void paintComponent(Graphics g){
-		Dimension tamano = getSize();
-		ImageIcon imagenFondo = new ImageIcon(getClass().getResource(
-				"/imagenes/cancha.jpg"));
-		g.drawImage(imagenFondo.getImage(), 0, 0, tamano.width,
-				tamano.height, null);
+	public void paintComponent (Graphics g){
+		Dimension tamanio = getSize();
+		ImageIcon imagenFondo = new ImageIcon(getClass().getResource(this.imagen));
+		g.drawImage(imagenFondo.getImage(),0,0,tamanio.width, tamanio.height, null);
 		setOpaque(false);
 		super.paintComponent(g);
 	}

@@ -35,8 +35,7 @@ public class Incompatibilidad {
 			}
 	}
 	
-	public boolean pertenecePar(Jugador j1, Jugador j2)
-	{
+	public boolean pertenecePar(Jugador j1, Jugador j2){
 		for(TuplaIncompatibles<Jugador, Jugador> TI: paresIncompatibles)
 			if(TI.jugador1.equals(j1) && TI.jugador2.equals(j2)  )
 				return true;
@@ -62,9 +61,9 @@ public class Incompatibilidad {
 	
 	@Override
 	public String toString(){
-		String ret="\nPares de Incompatibles: ";
+		String ret="";
 		for(TuplaIncompatibles<Jugador, Jugador> TI: paresIncompatibles){
-			ret+="\n"+TI.jugador1.nombre()+" "+TI.jugador1.nivelJuego()+" "+TI.jugador2.nombre()+" ";
+			ret+="\n"+TI.jugador1.nombre()+" "+TI.jugador1.nivelJuego()+" "+TI.jugador2.nombre()+" " +TI.jugador2.nivelJuego();
 		}
 		return ret;
 	}

@@ -24,7 +24,7 @@ public class Solver{
 		_algoritmo=algoritmo;
 		_jugadores=_instancia.getJugadores();
 		jugadoresSolucion= new ArrayList<Jugador>();
-
+	
 	}
 
 	public void ordenarJugadores(){
@@ -137,6 +137,4 @@ public class Solver{
 		return jugadoresSolucion;
 	}
 	
-	
-
 }

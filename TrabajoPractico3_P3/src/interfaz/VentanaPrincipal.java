@@ -76,12 +76,12 @@ public class VentanaPrincipal {
 		cargarDatos.setFont(new Font("Consolas", Font.PLAIN, 15));
 		cargarDatos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String password=new String(contrasenia.getPassword());
-				if(chequearDatos(password)){
-					CargaJugadores p=new CargaJugadores();
-					p.setVisible(true);
+				String pass=new String(contrasenia.getPassword());
+				if(chequearDatos(pass)){
+					CargaJugadores jugadores=new CargaJugadores();
+					jugadores.setVisible(true);
 					frame.dispose();
-					JOptionPane.showMessageDialog(null,"Debe cargar el archivo de los jugadores convocados","Mensaje",JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null,"Debe cargar el archivo de los jugadores convocados y los incompatibles","Mensaje",JOptionPane.INFORMATION_MESSAGE);
 				}else{
 					JOptionPane.showMessageDialog(null,"Debe cargar los datos correspondientes","Mensaje",JOptionPane.ERROR_MESSAGE);
 				}
@@ -91,9 +91,8 @@ public class VentanaPrincipal {
 		frame.getContentPane().add(cargarDatos);
 	}
 	
-	
-	private boolean chequearDatos(String password) {
-		return txtUsuario.getText().equals("JavierMarenco")&& password.equals("jmarenco") ||
-				txtUsuario.getText().equals("PatriciaBagnes") && password.equals("pbagnes");
+	private boolean chequearDatos(String contrasenia) {
+		return txtUsuario.getText().equals("JavierMarenco")&& contrasenia.equals("jmarenco") ||
+				txtUsuario.getText().equals("PatriciaBagnes") && contrasenia.equals("pbagnes");
 	}
 }

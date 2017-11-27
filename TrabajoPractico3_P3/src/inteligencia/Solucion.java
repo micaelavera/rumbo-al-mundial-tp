@@ -1,6 +1,5 @@
 package inteligencia;
 
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -8,10 +7,8 @@ public class Solucion{
 	
 	private Set<Jugador> jugadores;
 	
-	
 	public Solucion(){
-		jugadores = new HashSet<Jugador>();
-		
+		jugadores = new HashSet<Jugador>();	
 	}
 
 	public void agregar(Jugador jugador){
@@ -37,15 +34,6 @@ public class Solucion{
 	public int cantidadDeJugadores(){
 		return jugadores.size();
 	}
-	
-	
-	@Override
-	public String toString(){
-		String ret = "";
-		for(Jugador jugador: jugadores)
-			ret += (ret.length() > 0 ? "\n " : "") + jugador.nombre()+ " " +jugador.posicion()+ " "+ jugador.nivelJuego();
-		return ret;
-	}
 
 	public Solucion clonar(){
 		// Deep copy
@@ -55,15 +43,12 @@ public class Solucion{
 		
 		return ret;
 	}
-		
-
+	
+	@Override
+	public String toString(){
+		String ret = "";
+		for(Jugador jugador: jugadores)
+			ret += (ret.length() > 0 ? "\n " : "") + jugador.nombre()+ " " +jugador.posicion()+ " "+ jugador.nivelJuego();
+		return ret;
+	}
 }
-
-
-
-
-
-
-
-
-

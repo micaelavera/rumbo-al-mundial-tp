@@ -43,7 +43,6 @@ public class CargaJugadores extends JDialog {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
 		Fondo fondo = new Fondo("/imagenes/mascota.jpg");
-//		Fondo fondo=new Fondo("/imagenes/cancha.jpg");
 		fondo.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(fondo);
 		fondo.setLayout(null);
@@ -78,7 +77,7 @@ public class CargaJugadores extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 				if(buscadorJugadores.getText().isEmpty() || !buscadorJugadores.getText().contains("jugadores.JSON")|| 
 					buscadorIncompatibles.getText().isEmpty() || !buscadorIncompatibles.getText().contains("incompatibles.JSON")){
-					JOptionPane.showMessageDialog(null, "Debe buscar los archivos correspondiente", "Mensaje", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Debe buscar los archivos correspondientes", "Mensaje", JOptionPane.ERROR_MESSAGE);
 				}else{
 					Equipo equipo=new Equipo();
 					equipo.setVisible(true);

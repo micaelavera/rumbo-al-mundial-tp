@@ -5,6 +5,6 @@ import java.util.Comparator;
 public class Comparador {
 
 	public static Comparator<Jugador> porNivelDeJuego(){
-		return (uno, otro) -> uno.nivelJuego()-otro.nivelJuego(); 
+		return (j1, j2) -> j1.nivelJuego()-j2.nivelJuego(); 
 	}
 }

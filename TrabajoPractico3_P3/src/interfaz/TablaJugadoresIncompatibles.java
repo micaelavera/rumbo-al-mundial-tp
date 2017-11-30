@@ -40,12 +40,12 @@ public class TablaJugadoresIncompatibles extends AbstractTableModel{
 		@Override
 		public Object getValueAt(int fila, int columna){
 			switch (columna){											
-				case 0:return incompatibles.get(fila).getJugador1().nombre();
-				case 1: return incompatibles.get(fila).getJugador1().nivelJuego();
-				case 2:return incompatibles.get(fila).getJugador1().posicion();
-				case 3:return incompatibles.get(fila).getJugador2().nombre();
-				case 4: return incompatibles.get(fila).getJugador2().nivelJuego();
-				case 5: return incompatibles.get(fila).getJugador2().posicion();
+				case 0:return incompatibles.get(fila).jugador1().nombre();
+				case 1: return incompatibles.get(fila).jugador1().nivelJuego();
+				case 2:return incompatibles.get(fila).jugador1().posicion();
+				case 3:return incompatibles.get(fila).jugador2().nombre();
+				case 4: return incompatibles.get(fila).jugador2().nivelJuego();
+				case 5: return incompatibles.get(fila).jugador2().posicion();
 				default:return null;
 			}
 		}

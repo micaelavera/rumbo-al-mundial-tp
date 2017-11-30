@@ -15,18 +15,18 @@ import com.google.gson.JsonSyntaxException;
 
 public class IncompatiblesJSON {
 
-	private ArrayList<TuplaIncompatibles<Jugador, Jugador>> ParesIncompatibles;
+	private ArrayList<TuplaIncompatibles<Jugador, Jugador>> paresIncompatibles;
 
 	public IncompatiblesJSON(){
-		ParesIncompatibles=new ArrayList<TuplaIncompatibles<Jugador,Jugador>>();
+		paresIncompatibles=new ArrayList<TuplaIncompatibles<Jugador,Jugador>>();
 	}
 	
 	public void agregarPar(Jugador j1,Jugador j2){
-		ParesIncompatibles.add(new TuplaIncompatibles<Jugador, Jugador>(j1, j2) );
+		paresIncompatibles.add(new TuplaIncompatibles<Jugador, Jugador>(j1, j2) );
 	}
 
 	public ArrayList<TuplaIncompatibles<Jugador, Jugador>> getParesIncompatibles() {
-		return ParesIncompatibles;
+		return paresIncompatibles;
 	}
 	
 	public void generarIncompatiblesGSON(String archivo){
@@ -57,7 +57,5 @@ public class IncompatiblesJSON {
 			throw new IllegalArgumentException("El tipo de archivo no corresponde al formato JSON");
 		}
 		return ret;
-
 	}
-
 }

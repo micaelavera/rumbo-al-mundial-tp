@@ -43,6 +43,5 @@ public class TablaJugadores extends AbstractTableModel{
 			case 2:return jugadores.get(fila).nivelJuego();
 			default:return null;
 		}
-	}
-		
+	}	
 }

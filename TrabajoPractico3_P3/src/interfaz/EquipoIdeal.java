@@ -6,6 +6,7 @@ import inteligencia.Jugador;
 import inteligencia.Jugadores;
 import inteligencia.Solucion;
 import inteligencia.Solver;
+import inteligencia.PosicionJuego.Posicion;
 import inteligencia.Solver.Algoritmo;
 
 import java.awt.Color;
@@ -14,6 +15,7 @@ import java.awt.Toolkit;
 import javax.swing.JDialog;
 
 import java.util.ArrayList;
+import java.util.function.Consumer;
 
 import javax.swing.JTextField;
 
@@ -27,9 +29,8 @@ public class EquipoIdeal extends JDialog {
 	
 	private Fondo cancha;
 	private Solver solver;
-	private Jugadores jugadores;
-	private Incompatibilidad incompatibles;
-	
+	private Algoritmo algoritmo;
+		
 	public static void main(String[] args) {
 		try {
 			EquipoIdeal dialog = new EquipoIdeal();
@@ -46,79 +47,73 @@ public class EquipoIdeal extends JDialog {
 		setBounds(250, 100, 800, 550);
 		getContentPane().setLayout(null);
 
-		jugadores=new Jugadores();
-		incompatibles=new Incompatibilidad();
+		Jugadores jugadores=new Jugadores();
 		jugadores.cargarJugadores("jugadores.JSON");
+
+		Incompatibilidad incompatibles=new Incompatibilidad();
 		incompatibles.cargarJugadores("incompatibles.JSON");
-//		jugadores.cargarJugadores(CargaJugadores.buscadorJugadores().getText())
-//		incompatibles.cargarJugadores(CargaJugadores.buscadorIncompatibles().getText());
+
 		incompatibles.entraUnodelPar(jugadores);
 	
-		
-//		resolver(jugadores,Solver.Algoritmo.BacktrackingOrdenado);
-		Solver solver = new Solver(jugadores, Solver.Algoritmo.BacktrackingOrdenado);
-		Solucion optima = solver.resolver();
-
-		ArrayList<Jugador> jugadores= new ArrayList<Jugador>();
-		jugadores=solver.ListasDePosiciones(optima);
+		ArrayList<Jugador> jugador = ubicarEnCancha(jugadores,algoritmo);
 		
 		cancha= new Fondo("/imagenes/cancha.jpg");
 		cancha.setBackground(Color.BLACK);
 		setContentPane(cancha);
 		cancha.setLayout(null);
 		
-		JTextField arquero = new JTextField(jugadores.get(0).nombre());
+		JTextField arquero = new JTextField(jugador.get(0).nombre());
 		arquero.setBounds(41, 232, 86, 20);
 		agregar(arquero);
-		
-		JTextField defensor1 = new JTextField(jugadores.get(1).nombre());
+	
+		JTextField defensor1 = new JTextField(jugador.get(1).nombre());
 		defensor1.setBounds(209, 52, 86, 20);
 		agregar(defensor1);
-	
-		JTextField defensor2 = new JTextField(jugadores.get(2).nombre());
+		JTextField defensor2 = new JTextField(jugador.get(2).nombre());
 		defensor2.setBounds(209, 159, 86, 20);
 		agregar(defensor2);
 		
-		JTextField defensor3 = new JTextField(jugadores.get(3).nombre());
+		JTextField defensor3 = new JTextField(jugador.get(3).nombre());
 		defensor3.setBounds(209, 280, 86, 20);
-		agregar(defensor3);
+		agregar(defensor3);	
 		
-		JTextField defensor4 = new JTextField(jugadores.get(4).nombre());
+		JTextField defensor4 = new JTextField(jugador.get(4).nombre());
 		defensor4.setBounds(209, 385, 86, 20);
 		agregar(defensor4);
-	
-		JTextField mediocampista1 = new JTextField(jugadores.get(5).nombre());
+		
+		JTextField mediocampista1 = new JTextField(jugador.get(5).nombre());
 		mediocampista1.setBounds(376, 99, 86, 20);
 		agregar(mediocampista1);
 		
-		JTextField mediocampista2 = new JTextField(jugadores.get(6).nombre());
+		JTextField mediocampista2 = new JTextField(jugador.get(6).nombre());
 		mediocampista2.setBounds(376, 232, 86, 20);
 		agregar(mediocampista2);
 
-		JTextField mediocampista3 = new JTextField(jugadores.get(7).nombre());
+		JTextField mediocampista3 = new JTextField(jugador.get(7).nombre());
 		mediocampista3.setBounds(376, 348, 86, 20);
 		agregar(mediocampista3);
 		
-		JTextField delantero1 = new JTextField(jugadores.get(8).nombre());
+		JTextField delantero1 = new JTextField(jugador.get(8).nombre());
 		delantero1.setBounds(527, 52, 86, 20);
 		agregar(delantero1);
 
-		JTextField delantero2 = new JTextField(jugadores.get(9).nombre());
+		JTextField delantero2 = new JTextField(jugador.get(9).nombre());
 		delantero2.setBounds(527, 183, 86, 20);
 		agregar(delantero2);
 
-		JTextField delantero3 = new JTextField(jugadores.get(10).nombre());
+		JTextField delantero3 = new JTextField(jugador.get(10).nombre());
 		delantero3.setBounds(527, 324, 86, 20);
 		agregar(delantero3);
-	
+
 		JLabel lblNivelDeJuego = new JLabel("Nivel de juego total:");
 		lblNivelDeJuego.setFont(new Font("Consolas", Font.PLAIN, 15));
 		lblNivelDeJuego.setForeground(Color.WHITE);
 		lblNivelDeJuego.setBackground(new Color(0, 100, 0));
 		lblNivelDeJuego.setBounds(236, 453, 181, 28);
 		cancha.add(lblNivelDeJuego);
+	
 		
-		JTextField nivelDeJuegoTotal = new JTextField(""+optima.nivelJuego());
+		JTextField nivelDeJuegoTotal = new JTextField(""+nivel(jugador));
 		nivelDeJuegoTotal.setHorizontalAlignment(SwingConstants.CENTER);
 		nivelDeJuegoTotal.setEditable(false);
 		nivelDeJuegoTotal.setBackground(Color.BLUE);
@@ -129,12 +124,24 @@ public class EquipoIdeal extends JDialog {
 		cancha.add(nivelDeJuegoTotal);
 	}
 
-	private static void resolver(Jugadores jugadores,Solver.Algoritmo algoritmo) {
-		Solver solver = new Solver(jugadores, algoritmo);
-		Solucion optima = solver.resolver();
-		System.out.println(optima);
-	}
 
+	public ArrayList<Jugador> ubicarEnCancha(Jugadores jugadores,Solver.Algoritmo algoritmo) {
+		Solver solver = new Solver(jugadores,algoritmo);
+		Solucion optima = solver.resolver();
+		
+		ArrayList<Jugador> jugador= new ArrayList<Jugador>();
+		jugador=solver.ListasDePosiciones(optima);
+		return jugador;
+	}
+	
+	
+	private int nivel(ArrayList<Jugador> jugadores){
+		int nivel=0;
+		for(Jugador jugador: jugadores)
+			nivel+=jugador.nivelJuego();
+		return nivel;
+	}
+	
 	private void agregar(JTextField jugador) {
 		jugador.setEditable(false);
 		jugador.setHorizontalAlignment(SwingConstants.CENTER);

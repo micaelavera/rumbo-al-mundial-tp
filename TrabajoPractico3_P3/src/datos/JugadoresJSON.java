@@ -12,11 +12,11 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 
-public class JugadoresJson {
+public class JugadoresJSON {
 	
-	ArrayList<Jugador> jugadores;
+	private ArrayList<Jugador> jugadores;
 	
-	public JugadoresJson(){
+	public JugadoresJSON(){
 		jugadores=new ArrayList<Jugador>();
 	}
 	
@@ -32,7 +32,7 @@ public class JugadoresJson {
 		return jugadores.get(i);
 	}
 
-	public ArrayList<Jugador> getJugadores(){
+	public ArrayList<Jugador>getJugadores(){
 		return jugadores;
 	}
 	
@@ -49,13 +49,13 @@ public class JugadoresJson {
 		}
 	}
 	
-	public static JugadoresJson leerGSON(String archivo){
+	public static JugadoresJSON leerGSON(String archivo){
 		Gson gson = new Gson();
-		JugadoresJson ret = null;
+		JugadoresJSON ret = null;
 		
 		try{
 			BufferedReader br = new BufferedReader(new FileReader(archivo));
-			ret = gson.fromJson(br, JugadoresJson.class);
+			ret = gson.fromJson(br, JugadoresJSON.class);
 		}
 		catch(IOException e){
 			throw new IllegalArgumentException("El sistema no puede encontrar el archivo especificado");

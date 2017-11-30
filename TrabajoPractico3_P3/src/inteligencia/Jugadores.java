@@ -2,12 +2,12 @@ package inteligencia;
 
 import java.util.ArrayList;
 
-import datos.JugadoresJson;
+import datos.JugadoresJSON;
 import inteligencia.Jugador;
 
 public class Jugadores {
 
-	private ArrayList<Jugador> jugadores;
+	public ArrayList<Jugador> jugadores;
 	private int cantJugadores;
 	private int nivelJuegoTotal;
 
@@ -18,22 +18,31 @@ public class Jugadores {
 	}
 		
 	public void agregarJugador(Jugador jugador){
-		jugadores.add(jugador);
-		nivelJuegoTotal+=jugador.nivelJuego();
+		if(jugador==null){
+			throw new IllegalArgumentException("Se intento agregar un jugador invalido");
+		}
+//		if(!existeJugador(jugador)){
+			jugadores.add(jugador);
+			nivelJuegoTotal+=jugador.nivelJuego();
+//		}
 	}
 	
-	public void eliminarJugador(Jugador jugador){
-		jugadores.remove(jugador);
-		nivelJuegoTotal-=jugador.nivelJuego();
+	public void eliminarJugador(String nombre){
+		for(int i=0;i<jugadores.size();++i){
+			if(jugadores.get(i).nombre().equals(nombre)){
+				nivelJuegoTotal-=jugadores.get(i).nivelJuego();
+				jugadores.remove(i);
+			}
+		}
 	}
 	
 	public void cargarJugadores(String archivo){
 		try{
-			JugadoresJson jugadoresJson= JugadoresJson.leerGSON(archivo);
+			JugadoresJSON jugadoresJson= JugadoresJSON.leerGSON(archivo);
 			jugadores=jugadoresJson.getJugadores();
 			
 		}catch(IllegalArgumentException e){
-			throw new IllegalArgumentException("No se encuentra el listado de materias con nombre: "+ archivo);
+			throw new IllegalArgumentException("No se encuentra el listado de jugadores. "+ archivo);
 		}
 	}
 	
@@ -41,7 +50,7 @@ public class Jugadores {
 		return jugadores.size();
 	}
 	
-	public int getCantidadDeJugadores() {
+	public int hayOnceJugadores() {
 		return cantJugadores;
 	}
 

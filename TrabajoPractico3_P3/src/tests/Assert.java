@@ -9,6 +9,13 @@ import java.util.Set;
 
 class Assert
 {
+//	//Determina si el Set contiene los elementos del arreglo
+//		public static void setsIguales(int[] esperado,Set<Integer> obtenido){
+//			assertEquals(esperado.length,obtenido.size());
+//			for(Integer elemento: esperado)
+//				assertTrue(obtenido.contains(elemento));
+//			}
+//		}
 	public static void iguales(String[] esperados, Solucion solucion)
 	{
 		Set<Jugador> objetos = solucion.getJugadores();
@@ -29,3 +36,4 @@ class Assert
 		return false;
 	}
 }
+

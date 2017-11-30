@@ -2,6 +2,7 @@ package interfaz;
 
 import inteligencia.Incompatibilidad;
 import inteligencia.Jugadores;
+import inteligencia.Solver.Algoritmo;
 
 import java.awt.Toolkit;
 
@@ -19,6 +20,7 @@ public class Equipo extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private Jugadores jugadores;
 	private Incompatibilidad incompatibles;
+	
 
 	public static void main(String[] args)
 	{
@@ -45,6 +47,7 @@ public class Equipo extends JDialog {
 		
 		jugadores.cargarJugadores("jugadores.JSON");
 		incompatibles.cargarJugadores("incompatibles.JSON");
+		
 		
 		JTabbedPane pestania= new JTabbedPane(JTabbedPane.TOP);
 		pestania.setBounds(10, 20, 750, 480);
@@ -73,16 +76,28 @@ public class Equipo extends JDialog {
 		scrollPaneIncompatibles.setViewportView(tablaIncompatibles);
 		tablaIncompatibles.setModel(new TablaJugadoresIncompatibles(incompatibles.getParesIncompatibles()));
 		
-		
-		JButton btnGenerarEquipo = new JButton("Generar equipo");
+		JButton btnGenerarEquipo = new JButton("Generar equipo con Backtracking");
 		btnGenerarEquipo.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
 				EquipoIdeal equipo=new EquipoIdeal();
 				equipo.setVisible(true);
+				equipo.ubicarEnCancha(jugadores, Algoritmo.BacktrackingOrdenado);
 				dispose();
 			}
 		});
-		btnGenerarEquipo.setBounds(580, 413, 155, 28);
+		btnGenerarEquipo.setBounds(414, 413, 284, 28);
 		panelJugadores.add(btnGenerarEquipo);	
+		
+		JButton btnFuerzaBruta = new JButton("Generar equipo con Fuerza bruta");
+		 btnFuerzaBruta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				EquipoIdeal equipo=new EquipoIdeal();
+				equipo.setVisible(true);
+				equipo.ubicarEnCancha(jugadores, Algoritmo.FuerzaBruta);
+				dispose();
+			}
+		});
+		btnFuerzaBruta.setBounds(42, 413, 284, 28);
+		panelJugadores.add(btnFuerzaBruta);
 	}
 }
